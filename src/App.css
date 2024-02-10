@@ -1,0 +1,176 @@
+/* Copyright 2024 Prokhor Kalinin
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+ */
+
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: local('JetBrains Mono'), url(../public/fonts/JetBrainsMono/static/JetBrainsMono-Medium.ttf) format('truetype');
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* Missing Screen */
+
+.padded-container {
+    margin: 0 14px 0 14px;
+}
+
+/* Scales */
+
+.scale {
+    box-sizing: border-box;
+    background-color: #1f1e1e;
+    border: 3px solid;
+    margin-top: 10px;
+    text-align: left;
+    border-radius: 10px;
+    padding: 5px 20px;
+    color: white;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 24px;
+}
+
+.scale-title-label {
+    display: block;
+    font-size: 20px;
+    color: #61666B;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+}
+
+.first-layer {
+    border-color: #7f7f7f;
+}
+
+.second-layer {
+    background-color: #373535;
+    border-color: #7f7f7f;
+}
+
+.full-width {
+    display: block;
+    width: 100%;
+}
+
+/* Common Elements */
+
+.button-label {
+    font-family: 'JetBrains Mono', monospace;
+    color: #F8AE2C;
+}
+
+
+.text-field {
+    font-size: 30px;
+    color: white;
+    background-color: #282c34;
+    border: solid 1px #F8AE2C;
+    text-decoration: underline white 2px;
+}
+
+
+/* Navigation */
+
+.active-nav {
+    border-color: #7c5716;
+    color: #F8AE2C;
+}
+
+.inactive-nav:hover {
+    border-color: #7f7f7f;
+}
+
+.inactive-nav {
+    border-color: #302f2f;
+}
+
+.nav-button.nav-button-text:hover {
+    color: #F8AE2C;
+}
+
+/* Columns */
+
+.left-nav {
+    background: black;
+    max-width: 20%;
+    float: left;
+}
+
+.main-content {
+    box-sizing: border-box;
+    background: black;
+    border-right: 3px solid #1a1a1a;
+    border-left: 3px solid #1a1a1a;
+    min-width: 50%;
+    float: left;
+}
+
+.right-pad {
+    background: black;
+    max-width: 25%;
+    float: left;
+}
+
+.flex-column {
+    flex-grow: 1;
+    min-height: 100vh;
+    flex-flow: column;
+}
+
+.column-container {
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Header / footer */
+
+.footer-text {
+    background-color: #282c34;
+    font-family: 'JetBrains Mono', monospace;
+    color: white;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    width: 100%;
+    display: block;
+}
+
+.dd-nav {
+    background-color: black;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 3px solid #1a1a1a;
+}
+
+.dd-header {
+    font-size: 32px;
+    font-weight: 50;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-right: 64px;
+}
+
+.dd-subheader {
+    font-size: 24px;
+    font-weight: 50;
+    color: #F8AE2C;
+    letter-spacing: 0.1em;
+}
+
+html, body {
+    background-color: black;
+}
