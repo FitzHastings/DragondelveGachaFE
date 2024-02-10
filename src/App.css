@@ -22,6 +22,14 @@
     box-sizing: border-box;
 }
 
+/* Roll Screen */
+
+.roll-centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Missing Screen */
 
 .padded-container {
@@ -74,7 +82,19 @@
 
 .button-label {
     font-family: 'JetBrains Mono', monospace;
+    font-size: 20px;
     color: #F8AE2C;
+}
+
+.action-button {
+    padding: 10px 20px;
+    border: 3px solid #7c5716;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.action-button:hover {
+    border: 3px solid #F8AE2C;
 }
 
 .text-field {

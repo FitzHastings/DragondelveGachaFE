@@ -25,7 +25,7 @@ export default class RollScreen extends React.Component {
     render() {
         const innerScreen = this.state.isFresh ? (<FreshContent></FreshContent>) : (<RerollContent></RerollContent>);
         return (
-            <div className="scale full-width full-height first-layer">
+            <div className="roll-centered scale full-width full-height first-layer">
                 {innerScreen}
             </div>
         );
@@ -40,7 +40,11 @@ class FreshContent extends React.Component {
     }
 
     render() {
-        return (<a className="scale-title-label">Roll For Character</a>);
+        return (
+            <button className="action-button second-layer">
+                <a className="button-label">Roll For Character</a>
+            </button>
+        );
     }
 }
 
