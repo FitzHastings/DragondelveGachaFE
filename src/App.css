@@ -65,13 +65,17 @@
     width: 100%;
 }
 
+.full-height {
+    display: block;
+    min-height: 90vh;
+}
+
 /* Common Elements */
 
 .button-label {
     font-family: 'JetBrains Mono', monospace;
     color: #F8AE2C;
 }
-
 
 .text-field {
     font-size: 30px;
@@ -115,6 +119,7 @@
     border-right: 3px solid #1a1a1a;
     border-left: 3px solid #1a1a1a;
     min-width: 50%;
+    padding: 0 10px;
     float: left;
 }
 
@@ -169,6 +174,26 @@
     font-weight: 50;
     color: #F8AE2C;
     letter-spacing: 0.1em;
+}
+
+.user-info {
+    display: block;
+    float: right;
+}
+
+.user-details {
+    display: inline;
+    padding-right: 10px;
+    color: white;
+    font-size: 32px;
+    border-right: 3px solid #1a1a1a;
+}
+
+.user-logout-button {
+    display: inline;
+    padding-left: 10px;
+    font-size: 32px;
+    color: #61666B;
 }
 
 html, body {

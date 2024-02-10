@@ -15,6 +15,7 @@
 
 import './App.css';
 import Gacha from './Gacha';
+import UserInfo from './controls/UserInfo';
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                 <div className="dd-nav">
                     <a className="dd-header">Dragondelve</a>
                     <a className="dd-subheader">Gacha</a>
+                    <UserInfo identity="TestUser" energyCount="5"/>
                 </div>
             </header>
             <Gacha/>

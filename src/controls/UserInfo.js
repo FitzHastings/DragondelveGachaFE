@@ -14,24 +14,22 @@
 */
 
 import React from 'react';
-import MissingScreen from './screens/MissingScreen';
-import RollScreen from './screens/Roll/RollScreen';
 
-export default class MainContent extends React.Component {
+export default class UserInfo extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {};
     }
 
     render() {
-        let currentScreen = <MissingScreen/>;
-
-        if (this.props.currentScreen.id === 'roll') {
-            currentScreen = <RollScreen/>;
-        }
-
         return (
-            <div>
-                {currentScreen}
+            <div className="user-info">
+                <div className="user-details">
+                    {this.props.identity} ⚡ {this.props.energyCount}
+                </div>
+                <div className="user-logout-button">
+                    X
+                </div>
             </div>
         );
     }

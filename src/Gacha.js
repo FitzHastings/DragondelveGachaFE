@@ -33,7 +33,7 @@ export default class Gacha extends React.Component {
     }
 
     onChangeScreen = (id) => {
-        let newCurrentScreen = 'status';
+        let newCurrentScreen = 'collection';
         for (const sc of this.state.screens) {
             if (sc.id === id) {
                 newCurrentScreen = sc;
