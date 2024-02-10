@@ -22,12 +22,12 @@ export default class MainContent extends React.Component {
     }
 
     render() {
-        let currentScreen  = <MissingScreen />;
-        
+        let currentScreen = <MissingScreen/>;
+
         return (
-          <div>
-              {currentScreen}
-          </div>
+            <div>
+                {currentScreen}
+            </div>
         );
     }
 }

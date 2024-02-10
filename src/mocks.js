@@ -16,4 +16,4 @@
 export const mockUser = {
     id: 1,
     identity: 'TestUser'
-}
+};
