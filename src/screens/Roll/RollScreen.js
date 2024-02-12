@@ -14,6 +14,7 @@
 */
 
 import React from 'react';
+import {mockCharacter} from '../../mocks';
 
 export default class RollScreen extends React.Component {
     constructor(props) {
@@ -22,11 +23,17 @@ export default class RollScreen extends React.Component {
         this.state = {isFresh: true};
     }
 
+    onRoll = () => {
+        if (this.props.onUserEnergySpent(1))
+            console.log('ROLL!!!!');
+        this.setState({isFresh: false, rollResult: mockCharacter});
+    };
+
     render() {
         const innerScreen = this.state.isFresh ? (
-            <FreshContent onUserEnergySpent={ this.props.onUserEnergySpent }/>
+            <FreshContent onUserEnergySpent={this.onRoll}/>
         ) : (
-            <RerollContent onUserEnergySpent={ this.props.onUserEnergySpent }/>
+            <RerollContent onUserEnergySpent={this.onRoll} rollResult={this.state.rollResult}/>
         );
 
         return (
@@ -46,8 +53,8 @@ class FreshContent extends React.Component {
 
     render() {
         return (
-            <div className='roll-center'>
-                <button className="action-button second-layer" onClick={ () => this.props.onUserEnergySpent(1) }>
+            <div className="roll-center">
+                <button className="action-button second-layer" onClick={() => this.props.onUserEnergySpent(1)}>
                     <a className="button-label">Roll 1 ⚡</a>
                 </button>
             </div>
@@ -63,6 +70,31 @@ class RerollContent extends React.Component {
     }
 
     render() {
-        return (<a className="scale-title-label">Fresh Screen</a>);
+        const rollStyle = {
+            backgroundImage: `url(/${this.props.rollResult.template.id}/full.png)`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain'
+        };
+
+        return (
+            <div className="reroll-center">
+                <div className="reroll-title">
+                    <span>{this.props.rollResult.name}</span>
+                    <span className={`rarity-text text-${this.props.rollResult.template.rarity}`}>
+                        {this.props.rollResult.template.rarity}
+                    </span>
+                    <span className="roll-setting">Setting: {this.props.rollResult.template.setting.name}</span>
+                </div>
+                <div className="character-card-container">
+                    <div
+                        className={`scale second-layer character-card rarity-${this.props.rollResult.template.rarity}`}
+                        style={rollStyle}
+                    />
+                </div>
+                <button className="action-button second-layer float-right" onClick={() => this.props.onUserEnergySpent(1)}>
+                    <a className="button-label">Roll Again 1 ⚡</a>
+                </button>
+            </div>
+        );
     }
 }

@@ -31,6 +31,38 @@
     height: 90vh;
 }
 
+.reroll-center {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+}
+
+.reroll-title {
+    display: flex;
+    justify-content: center;
+}
+
+.character-card-container {
+    display: flex;
+    justify-content: center;
+}
+
+.character-card {
+    height: 85vh;
+    width: 58.85vh;
+}
+
+.roll-setting {
+    font-size: 20px;
+    color: #61666B;
+}
+
+.rarity-text {
+    text-transform: uppercase;
+    text-align: center;
+    flex-grow: 1;
+}
+
 /* Missing Screen */
 
 .padded-container {
@@ -43,7 +75,7 @@
     box-sizing: border-box;
     background-color: #1f1e1e;
     border: 3px solid;
-    margin-top: 10px;
+    margin: 10px 0;
     text-align: left;
     border-radius: 10px;
     padding: 5px 20px;
@@ -81,6 +113,10 @@
 
 /* Common Elements */
 
+.float-right {
+    float: right;
+}
+
 .button-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 20px;
@@ -105,7 +141,6 @@
     border: solid 1px #F8AE2C;
     text-decoration: underline white 2px;
 }
-
 
 /* Navigation */
 
@@ -215,6 +250,68 @@
     padding-left: 10px;
     font-size: 32px;
     color: #61666B;
+}
+
+/* Rarity Indicators */
+
+.rarity-common {
+    border-color: grey;
+}
+
+.rarity-uncommon {
+    border-color: green;
+}
+
+.rarity-rare {
+    border-color: blue;
+}
+
+.rarity-epic {
+    border-color: purple;
+}
+
+.rarity-legendary {
+    border-color: gold;
+}
+
+.rarity-common {
+    border-color: grey;
+}
+
+.rarity-uncommon {
+    border-color: green;
+}
+
+.rarity-rare {
+    border-color: blue;
+}
+
+.rarity-epic {
+    border-color: purple;
+}
+
+.rarity-legendary {
+    border-color: gold;
+}
+
+.text-common {
+    color: grey;
+}
+
+.text-uncommon {
+    color: green;
+}
+
+.text-rare {
+    color: blue;
+}
+
+.text-epic {
+    color: purple;
+}
+
+.text-legendary {
+    color: gold;
 }
 
 html, body {
