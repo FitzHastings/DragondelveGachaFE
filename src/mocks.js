@@ -15,5 +15,6 @@
 
 export const mockUser = {
     id: 1,
-    identity: 'TestUser'
+    identity: 'TestUser',
+    energyCount: 5,
 };

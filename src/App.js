@@ -14,22 +14,10 @@
 */
 
 import './App.css';
-import Gacha from './Gacha';
-import UserInfo from './controls/UserInfo';
+import RootComponent from './RootComponent';
 
 function App() {
-    return (
-        <div>
-            <header>
-                <div className="dd-nav">
-                    <a className="dd-header">Dragondelve</a>
-                    <a className="dd-subheader">Gacha</a>
-                    <UserInfo identity="TestUser" energyCount="5"/>
-                </div>
-            </header>
-            <Gacha/>
-        </div>
-    );
+    return <RootComponent/>;
 }
 
 export default App;

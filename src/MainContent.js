@@ -26,7 +26,7 @@ export default class MainContent extends React.Component {
         let currentScreen = <MissingScreen/>;
 
         if (this.props.currentScreen.id === 'roll') {
-            currentScreen = <RollScreen/>;
+            currentScreen = <RollScreen onUserEnergySpent={this.props.onUserEnergySpent}/>;
         }
 
         return (

@@ -56,6 +56,7 @@ export default class Gacha extends React.Component {
                 <div className="main-content flex-column">
                     <MainContent
                         currentScreen={this.state.currentScreen}
+                        onUserEnergySpent={this.props.onUserEnergySpent}
                     />
                 </div>
                 <div className="right-pad flex-column">

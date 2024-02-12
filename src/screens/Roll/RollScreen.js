@@ -23,9 +23,14 @@ export default class RollScreen extends React.Component {
     }
 
     render() {
-        const innerScreen = this.state.isFresh ? (<FreshContent></FreshContent>) : (<RerollContent></RerollContent>);
+        const innerScreen = this.state.isFresh ? (
+            <FreshContent onUserEnergySpent={ this.props.onUserEnergySpent }/>
+        ) : (
+            <RerollContent onUserEnergySpent={ this.props.onUserEnergySpent }/>
+        );
+
         return (
-            <div className="roll-centered scale full-width full-height first-layer">
+            <div className="scale full-width full-height first-layer">
                 {innerScreen}
             </div>
         );
@@ -41,9 +46,11 @@ class FreshContent extends React.Component {
 
     render() {
         return (
-            <button className="action-button second-layer">
-                <a className="button-label">Roll For Character</a>
-            </button>
+            <div className='roll-center'>
+                <button className="action-button second-layer" onClick={ () => this.props.onUserEnergySpent(1) }>
+                    <a className="button-label">Roll 1 ⚡</a>
+                </button>
+            </div>
         );
     }
 }
