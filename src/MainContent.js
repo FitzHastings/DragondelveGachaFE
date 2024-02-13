@@ -16,6 +16,7 @@
 import React from 'react';
 import MissingScreen from './screens/MissingScreen';
 import RollScreen from './screens/Roll/RollScreen';
+import CollectionScreen from './screens/Collection/CollectionScreen';
 
 export default class MainContent extends React.Component {
     constructor(props) {
@@ -25,9 +26,10 @@ export default class MainContent extends React.Component {
     render() {
         let currentScreen = <MissingScreen/>;
 
-        if (this.props.currentScreen.id === 'roll') {
+        if (this.props.currentScreen.id === 'roll')
             currentScreen = <RollScreen onUserEnergySpent={this.props.onUserEnergySpent}/>;
-        }
+        else if (this.props.currentScreen.id === 'collection')
+            currentScreen = <CollectionScreen/>;
 
         return (
             <div>

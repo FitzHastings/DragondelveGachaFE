@@ -13,6 +13,27 @@
    limitations under the License.
 */
 
+class IdGenerator {
+    constructor(initialValue) {
+        this.nextValue = initialValue || 1;
+    }
+
+    next() {
+        return this.nextValue++;
+    }
+}
+
+class RarityGenerator {
+    constructor(initialValue) {
+        this.values = ['common', 'uncommon', 'rare', 'epic', 'legendary'];
+        this.nextValue = initialValue % 5 || 0;
+    }
+
+    next() {
+        return this.values[this.nextValue++ % 5];
+    }
+}
+
 export const mockUser = {
     id: 1,
     identity: 'TestUser',
@@ -32,3 +53,208 @@ export const mockCharacter = {
         }
     },
 };
+
+const collectionIdGenerator = new IdGenerator();
+const collectionRarityGenerator = new RarityGenerator();
+export const mockCollection = [
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+    {
+        id: collectionIdGenerator.next(),
+        name: 'Lenz Manzikert',
+        template: {
+            id: 1,
+            rarity: collectionRarityGenerator.next(),
+        },
+    },
+];

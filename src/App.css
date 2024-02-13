@@ -22,6 +22,31 @@
     box-sizing: border-box;
 }
 
+/* Collection Screen */
+
+.collection-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    justify-content: start;
+}
+
+.card-container {
+    flex: 1;
+    min-width: 300px; /* set the width of your choice */
+    height: 423px; /* set the height of your choice */
+}
+
+.collection-card {
+    width: 280px;
+    height: 403px;
+}
+
+.card-title-label.scale-title-label {
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+    color: white;
+}
+
 /* Roll Screen */
 
 .roll-center {
@@ -170,7 +195,6 @@
 }
 
 .main-content {
-    box-sizing: border-box;
     background: black;
     border-right: 3px solid #1a1a1a;
     border-left: 3px solid #1a1a1a;
