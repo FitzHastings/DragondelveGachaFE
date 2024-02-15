@@ -40,20 +40,6 @@ export const mockUser = {
     energyCount: 5,
 };
 
-export const mockCharacter = {
-    id: 1,
-    name: 'Lobachevsky',
-    template: {
-        id: 1,
-        name: 'Lobachevsky',
-        rarity: 'epic',
-        setting: {
-            id: 1,
-            name: 'Aether Storm'
-        }
-    },
-};
-
 const collectionIdGenerator = new IdGenerator();
 const collectionRarityGenerator = new RarityGenerator();
 export const mockCollection = [

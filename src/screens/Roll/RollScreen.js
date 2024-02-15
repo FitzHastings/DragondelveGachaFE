@@ -14,19 +14,27 @@
 */
 
 import React from 'react';
-import {mockCharacter} from '../../mocks';
 
 export default class RollScreen extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {isFresh: true};
+        this.state = {isFresh: true, isRolling: false};
     }
 
     onRoll = () => {
-        if (this.props.onUserEnergySpent(1))
-            console.log('ROLL!!!!');
-        this.setState({isFresh: false, rollResult: mockCharacter});
+        if (this.state.isRolling)
+            return;
+
+        this.setState({isRolling: true});
+        if (this.props.onUserEnergySpent(1)) {
+            fetch('http://localhost:4812/roll').then(async (res) => {
+                this.setState({isFresh: false, isRolling: false, rollResult: await res.json()});
+            }).catch((err) => {
+                console.error(err);
+                this.setState({isRolling: false});
+            });
+        }
     };
 
     render() {
@@ -70,8 +78,9 @@ class RerollContent extends React.Component {
     }
 
     render() {
+        console.log(this.props.rollResult.template);
         const rollStyle = {
-            backgroundImage: `url(/${this.props.rollResult.template.id}/full.png)`,
+            backgroundImage: `url(http://localhost:4812/${this.props.rollResult.template.id}/full.png)`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain'
         };
@@ -83,7 +92,7 @@ class RerollContent extends React.Component {
                     <span className={`rarity-text text-${this.props.rollResult.template.rarity}`}>
                         {this.props.rollResult.template.rarity}
                     </span>
-                    <span className="roll-setting">Setting: {this.props.rollResult.template.setting.name}</span>
+                    <span className="roll-setting">Setting: {this.props.rollResult.template.setting}</span>
                 </div>
                 <div className="character-card-container">
                     <div
