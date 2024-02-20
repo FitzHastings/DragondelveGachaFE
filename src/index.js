@@ -1,13 +1,19 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import App from './App';
+import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
+import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
+import './App.css';
+import RootComponent from './RootComponent';
+import LoginScreen from './login/LoginScreen';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-    <React.StrictMode>
-        <App/>
-    </React.StrictMode>
+ReactDOM.render(
+    <Router>
+        <Routes>
+            <Route path="/" element={<RootComponent/>}/>
+            <Route path="/login" element={<LoginScreen/>}/>
+        </Routes>
+    </Router>,
+    document.getElementById('root')
 );
 
 
