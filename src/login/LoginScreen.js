@@ -40,10 +40,17 @@ export default class LoginScreen extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
-                    <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
-                    <button type="submit">Login</button>
+                <form className="scale first-layer" onSubmit={this.handleSubmit}>
+                    <span className="scale-title-label">Login</span>
+                    <div>
+                        <p>Login</p>
+                        <input type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
+                    </div>
+                    <div>
+                        <p>Password</p>
+                        <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
+                    </div>
+                    <button className='action-button scale second-layer' type="submit"><span>Login</span></button>
                 </form>
             </div>
         );
