@@ -22,6 +22,16 @@
     box-sizing: border-box;
 }
 
+/* Login / Register Screen */
+
+.text-field {
+    font-size: 30px;
+    color: white;
+    background-color: #282c34;
+    border: solid 1px #F8AE2C;
+    text-decoration: underline white 2px;
+}
+
 /* Collection Screen */
 
 .collection-container {
@@ -157,14 +167,6 @@
 
 .action-button:hover {
     border: 3px solid #F8AE2C;
-}
-
-.text-field {
-    font-size: 30px;
-    color: white;
-    background-color: #282c34;
-    border: solid 1px #F8AE2C;
-    text-decoration: underline white 2px;
 }
 
 /* Navigation */
