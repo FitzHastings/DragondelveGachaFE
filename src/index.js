@@ -5,12 +5,15 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import './App.css';
 import RootComponent from './RootComponent';
 import LoginScreen from './login/LoginScreen';
+import RegisterScreen from './login/RegisterScreen';
+
 
 ReactDOM.render(
     <Router>
         <Routes>
             <Route path="/" element={<RootComponent/>}/>
             <Route path="/login" element={<LoginScreen/>}/>
+            <Route path="/register" element={<RegisterScreen/>}/>
         </Routes>
     </Router>,
     document.getElementById('root')

@@ -17,12 +17,14 @@ import React from 'react';
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-export default class LoginScreen extends React.Component {
+export default class RegisterScreen extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             username: '',
             password: '',
+            confirmPassword: '',
+            doNotMatch: false,
         };
     }
 
@@ -34,40 +36,56 @@ export default class LoginScreen extends React.Component {
         this.setState({password: event.target.value});
     };
 
+    handleConfirmPasswordChange = (event) => {
+        this.setState({confirmPassword: event.target.value});
+    };
+
     handleSubmit = (event) => {
         event.preventDefault();
-        fetch(`${apiUrl}/login`, {
+
+        if (this.state.password !== this.state.confirmPassword) {
+            this.setState({doNotMatch: true});
+            return;
+        }
+
+        fetch(`${apiUrl}/user`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            credentials: 'include',
             body: JSON.stringify({identity: this.state.username, password: this.state.password})
         }).then(response => {
             if (!response.ok) {
                 console.log('Network response was not ok');
                 return;
             }
-            window.location.href = '/';
+            window.location.href = '/login';
         });
     };
 
     render() {
+        const invisible = {opacity: '0%'};
+        const visible = {color: '', opacity: '100%'};
         return (
             <div>
                 <form className="scale first-layer" onSubmit={this.handleSubmit}>
-                    <span className="scale-title-label">Login</span>
+                    <span className="scale-title-label">Sign Up</span>
                     <div>
-                        <p>Login</p>
+                        <p>Identity</p>
                         <input type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
                     </div>
                     <div>
                         <p>Password</p>
                         <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     </div>
-                    <button className="action-button scale second-layer" type="submit"><span>Login</span></button>
+                    <div>
+                        <span style={this.state.doNotMatch ? visible : invisible}>Do not Match</span>
+                        <p>Confirm Password</p>
+                        <input type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/>
+                    </div>
+                    <button className="action-button scale second-layer" type="submit"><span>Sign Up</span></button>
                     <hr/>
-                    <a className="roll-setting" href="/register">sign up</a>
+                    <a className="roll-setting" href="/login">login instead?</a>
                 </form>
             </div>
         );

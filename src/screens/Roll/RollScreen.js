@@ -28,7 +28,13 @@ export default class RollScreen extends React.Component {
 
         this.setState({isRolling: true});
         if (this.props.onUserEnergySpent(1)) {
-            fetch('http://localhost:4812/roll').then(async (res) => {
+            fetch(
+                `${process.env.REACT_APP_API_URL}/roll`,
+                {
+                    method: 'GET',
+                    credentials: 'include',
+                }
+            ).then(async (res) => {
                 this.setState({isFresh: false, isRolling: false, rollResult: await res.json()});
             }).catch((err) => {
                 console.error(err);
@@ -80,7 +86,7 @@ class RerollContent extends React.Component {
     render() {
         console.log(this.props.rollResult.template);
         const rollStyle = {
-            backgroundImage: `url(http://localhost:4812/${this.props.rollResult.template.id}/full.png)`,
+            backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.rollResult.template.id}/full.png)`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain'
         };
