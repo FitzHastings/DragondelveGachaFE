@@ -14,13 +14,29 @@
 */
 
 import React from 'react';
-import {mockCollection} from '../../mocks';
 
 export default class CollectionScreen extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {characters: mockCollection};
+        this.state = {characters: []};
+    }
+
+    componentDidMount() {
+        fetch(
+            `${process.env.REACT_APP_API_URL}/collection`,
+            {
+                method: 'GET',
+                credentials: 'include',
+            }
+        ).then(async (res) => {
+            const collection = await res.json();
+            console.log(JSON.stringify(collection));
+
+            this.setState({characters: collection});
+        }).catch((err) => {
+            console.error(err);
+        });
     }
 
     render() {
@@ -44,7 +60,7 @@ class CollectionCard extends React.Component {
 
     render() {
         const cardStyle = {
-            backgroundImage: `url(/${this.props.character.template.id}/full.png)`,
+            backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.character.template.id}/full.png)`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain'
         };

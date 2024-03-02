@@ -16,16 +16,14 @@
 import React from 'react';
 import UserInfo from './controls/UserInfo';
 import Gacha from './Gacha';
-import {mockUser} from './mocks';
 
 export default class RootComponent extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            identity: mockUser.identity,
-            energyCount: mockUser.energyCount,
-            userId: mockUser.id,
+            identity: '',
+            energyCount: 0,
         };
     }
 
@@ -38,6 +36,27 @@ export default class RootComponent extends React.Component {
         }
         return false;
     };
+
+    componentDidMount() {
+        fetch(
+            `${process.env.REACT_APP_API_URL}/user`,
+            {
+                method: 'GET',
+                credentials: 'include',
+            }
+        ).then(async (res) => {
+            const user = await res.json();
+            if (!res.ok) {
+                window.location.href = '/login';
+                return;
+            }
+            console.log(user);
+            this.setState({identity: user.identity, energyCount: user.currentEnergy});
+        }).catch((err) => {
+            console.error(err);
+            window.location.href = '/login';
+        });
+    }
 
     render() {
         return (
