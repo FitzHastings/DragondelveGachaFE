@@ -31,8 +31,6 @@ export default class CollectionScreen extends React.Component {
             }
         ).then(async (res) => {
             const collection = await res.json();
-            console.log(JSON.stringify(collection));
-
             this.setState({characters: collection});
         }).catch((err) => {
             console.error(err);
@@ -60,7 +58,7 @@ class CollectionCard extends React.Component {
 
     render() {
         const cardStyle = {
-            backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.character.template.id}/full.png)`,
+            backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.character.template.id}/small.png)`,
             backgroundRepeat: 'no-repeat',
             backgroundSize: 'contain'
         };

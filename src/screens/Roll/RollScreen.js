@@ -84,7 +84,6 @@ class RerollContent extends React.Component {
     }
 
     render() {
-        console.log(this.props.rollResult.template);
         const rollStyle = {
             backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.rollResult.template.id}/full.png)`,
             backgroundRepeat: 'no-repeat',

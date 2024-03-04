@@ -21,13 +21,17 @@ export default class UserInfo extends React.Component {
         this.state = {};
     }
 
+    onLogout = () => {
+        window.location.href = '/login';
+    };
+
     render() {
         return (
             <div className="user-info">
                 <div className="user-details">
                     {this.props.identity} ⚡ {this.props.energyCount}
                 </div>
-                <div className="user-logout-button">
+                <div onClick={this.onLogout} className="user-logout-button">
                     X
                 </div>
             </div>
