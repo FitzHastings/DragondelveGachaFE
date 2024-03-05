@@ -23,6 +23,7 @@ export default class LoginScreen extends React.Component {
         this.state = {
             username: '',
             password: '',
+            doNotMatch: false,
         };
     }
 
@@ -47,15 +48,19 @@ export default class LoginScreen extends React.Component {
             if (!response.ok) {
                 console.log('Network response was not ok');
                 return;
+            } else {
+                this.setState({ doNotMatch: true })
             }
             window.location.href = '/';
         });
     };
 
     render() {
+        const invisible = {opacity: '0%'};
+        const visible = {color: '#F8AE2C', opacity: '100%'};
         return (
-            <div>
-                <form className="scale first-layer" onSubmit={this.handleSubmit}>
+            <div className='login-container-form'>
+                <form className="scale first-layer login-form" onSubmit={this.handleSubmit}>
                     <span className="scale-title-label">Login</span>
                     <div>
                         <p>Login</p>
@@ -65,6 +70,7 @@ export default class LoginScreen extends React.Component {
                         <p>Password</p>
                         <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     </div>
+                    <div style={this.state.doNotMatch ? visible : invisible}>Incorrect Login or Password</div>
                     <button className="action-button scale second-layer" type="submit"><span>Login</span></button>
                     <hr/>
                     <a className="roll-setting" href="/register">sign up</a>

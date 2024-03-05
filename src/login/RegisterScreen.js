@@ -65,10 +65,10 @@ export default class RegisterScreen extends React.Component {
 
     render() {
         const invisible = {opacity: '0%'};
-        const visible = {color: '', opacity: '100%'};
+        const visible = {color: '#F8AE2C', opacity: '100%'};
         return (
-            <div>
-                <form className="scale first-layer" onSubmit={this.handleSubmit}>
+            <div className='login-container-form'>
+                <form className="scale first-layer login-form" onSubmit={this.handleSubmit}>
                     <span className="scale-title-label">Sign Up</span>
                     <div>
                         <p>Identity</p>
@@ -79,10 +79,10 @@ export default class RegisterScreen extends React.Component {
                         <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     </div>
                     <div>
-                        <span style={this.state.doNotMatch ? visible : invisible}>Do not Match</span>
                         <p>Confirm Password</p>
                         <input type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/>
                     </div>
+                    <div style={this.state.doNotMatch ? visible : invisible}>Do not Match</div>
                     <button className="action-button scale second-layer" type="submit"><span>Sign Up</span></button>
                     <hr/>
                     <a className="roll-setting" href="/login">login instead?</a>
