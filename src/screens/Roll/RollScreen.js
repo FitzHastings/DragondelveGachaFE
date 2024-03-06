@@ -115,6 +115,9 @@ class RerollContent extends React.Component {
                                 <span className='description-tooltip'>{this.props.rollResult.template.description}</span>
                             </div>
                         )}
+                        <div className='quote-box'>
+                            <span className='quote-text'>"{this.props.rollResult.template.quote}"</span>
+                        </div>
                     </div>
                 </div>
                 <button className="action-button second-layer float-right" onClick={() => this.props.onUserEnergySpent(1)}>

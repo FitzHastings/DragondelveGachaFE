@@ -104,6 +104,18 @@
     font-size: 16px;
 }
 
+.quote-box {
+    display: flex;
+    flex-flow: column;
+    height: 83vh;
+    justify-content: flex-end;
+}
+
+.quote-text {
+    font-style: italic;
+    text-shadow: 2px 0 0 #000, 0 -2px 0 #000, 0 2px 0 #000, -2px 0 0 #000;
+}
+
 .reroll-center {
     display: flex;
     flex-direction: column;
