@@ -80,9 +80,14 @@ class RerollContent extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {};
+        this.state = {
+            showDescription: false
+        };
     }
 
+    showDescription = () => this.setState({showDescription: true});
+
+    hideDescription = () => this.setState({ showDescription: false });
     render() {
         const rollStyle = {
             backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.rollResult.template.id}/full.png)`,
@@ -103,7 +108,14 @@ class RerollContent extends React.Component {
                     <div
                         className={`scale second-layer character-card rarity-${this.props.rollResult.template.rarity}`}
                         style={rollStyle}
-                    />
+                    >
+                        <div onMouseLeave={this.hideDescription} onMouseEnter={this.showDescription} className='description-button float-right'>?</div>
+                        {this.state.showDescription && (
+                            <div className='description-tooltip-container scale second-layer'>
+                                <span className='description-tooltip'>{this.props.rollResult.template.description}</span>
+                            </div>
+                        )}
+                    </div>
                 </div>
                 <button className="action-button second-layer float-right" onClick={() => this.props.onUserEnergySpent(1)}>
                     <a className="button-label">Roll Again 1 ⚡</a>

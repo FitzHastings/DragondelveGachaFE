@@ -77,6 +77,33 @@
     height: 90vh;
 }
 
+.description-button {
+    color: white;
+    background-color: #302f2f;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 14px;
+    border: 3px solid #7f7f7f;
+    border-radius: 10px;
+    width: 24px;
+    height: 24px;
+    opacity: 50%;
+    text-align: center;
+}
+
+.description-button:hover {
+    opacity: 100%;
+}
+
+.description-tooltip-container {
+    position: absolute;
+    opacity: 75%;
+    width: 45vh;
+}
+
+.description-tooltip {
+    font-size: 16px;
+}
+
 .reroll-center {
     display: flex;
     flex-direction: column;
