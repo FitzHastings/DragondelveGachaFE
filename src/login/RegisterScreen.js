@@ -72,20 +72,20 @@ export default class RegisterScreen extends React.Component {
                     <span className="scale-title-label">Sign Up</span>
                     <div>
                         <p>Identity</p>
-                        <input type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
+                        <input className='text-field' type="text" value={this.state.username} onChange={this.handleUsernameChange}/>
                     </div>
                     <div>
                         <p>Password</p>
-                        <input type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
+                        <input className='text-field' type="password" value={this.state.password} onChange={this.handlePasswordChange}/>
                     </div>
                     <div>
                         <p>Confirm Password</p>
-                        <input type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/>
+                        <input className='text-field' type="password" value={this.state.confirmPassword} onChange={this.handleConfirmPasswordChange}/>
                     </div>
                     <div style={this.state.doNotMatch ? visible : invisible}>Do not Match</div>
                     <button className="action-button scale second-layer" type="submit"><span>Sign Up</span></button>
                     <hr/>
-                    <a className="roll-setting" href="/login">login instead?</a>
+                    <a className="roll-setting" href="/login">sign in instead?</a>
                 </form>
             </div>
         );

@@ -25,11 +25,17 @@
 /* Login / Register Screen */
 
 .text-field {
-    font-size: 30px;
+    font-size: 20px;
     color: white;
-    background-color: #282c34;
-    border: solid 1px #F8AE2C;
-    text-decoration: underline white 2px;
+    background-color: #373535;
+    border: solid 3px #7c5716;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.text-field:focus {
+    border: solid 3px #F8AE2C;
+    outline: none;
 }
 
 .login-container-form {
