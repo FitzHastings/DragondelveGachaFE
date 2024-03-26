@@ -14,12 +14,14 @@
 */
 
 import React from 'react';
+import CollectionTools from './CollectionTools';
+import CharacterView from './CharacterView';
 
 export default class CollectionScreen extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {characters: []};
+        this.state = {characters: [], details: false, displaying: null};
     }
 
     componentDidMount() {
@@ -37,14 +39,35 @@ export default class CollectionScreen extends React.Component {
         });
     }
 
+    handleBack = () => {
+        this.setState({details: false});
+    }
+
+    handleDetails = (character) => {
+        this.setState({displaying: character, details: true});
+    }
+
     render() {
+        if (this.state.details) {
+            return (
+                <div>
+                    <CollectionTools showBack={this.state.details} onBack={this.handleBack}/>
+                    <div className='scale first-layer'>
+                    <CharacterView character={this.state.displaying} ></CharacterView>
+                    </div>
+                </div>
+            )
+        }
         const collectionCards = this.state.characters.map(character => {
-            return <CollectionCard character={character} key={character.id}/>;
+            return <CollectionCard onDetails={this.handleDetails} character={character} key={character.id}/>;
         });
 
         return (
-            <div className="collection-container">
-                {collectionCards}
+            <div>
+                <CollectionTools showBack={this.state.details} onBack={this.handleBack}></CollectionTools>
+                <div className="collection-container">
+                    {collectionCards}
+                </div>
             </div>
         );
     }
@@ -65,7 +88,7 @@ class CollectionCard extends React.Component {
 
         return (
             <div className="card-container">
-                <div
+                <div onClick={() => this.props.onDetails(this.props.character)}
                     className={`scale rarity-${this.props.character.template.rarity} collection-card`}
                     style={cardStyle}
                 >

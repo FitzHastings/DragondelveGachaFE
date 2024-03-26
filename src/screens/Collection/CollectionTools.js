@@ -15,14 +15,23 @@
 
 import React from 'react';
 
-export default class CollectionScreen extends React.Component {
+export default class CollectionTools extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
+        const invisible = {opacity: '0%'};
+        const visible = {opacity: '100%'};
         return (
-            <div className='scale first-layer full-width'>
+            <div className='bottom-line'>
+                <button
+                    style={this.props.showBack ? visible : invisible}
+                    className='action-button nav-small scale first-layer'
+                    onClick={this.props.onBack}
+                >
+                    {'<'}
+                </button>
             </div>
         );
     }
