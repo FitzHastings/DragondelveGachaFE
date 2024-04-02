@@ -29,13 +29,13 @@
     font-size: 20px;
     color: white;
     background-color: #373535;
-    border: solid 3px #7c5716;
+    border: solid 3px #205154;
     border-radius: 10px;
     padding: 5px;
 }
 
 .text-field:focus {
-    border: solid 3px #F8AE2C;
+    border: solid 3px #40a2a8;
     outline: none;
 }
 
@@ -219,25 +219,25 @@
 .button-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 20px;
-    color: #F8AE2C;
+    color: #40a2a8;
 }
 
 .action-button {
     padding: 10px 20px;
-    border: 3px solid #7c5716;
+    border: 3px solid #205154;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .action-button:hover {
-    border: 3px solid #F8AE2C;
+    border: 3px solid #40a2a8;
 }
 
 /* Navigation */
 
 .active-nav {
-    border-color: #7c5716;
-    color: #F8AE2C;
+    border-color: #205154;
+    color: #40a2a8;
 }
 
 .inactive-nav:hover {
@@ -249,7 +249,7 @@
 }
 
 .nav-button.nav-button-text:hover {
-    color: #F8AE2C;
+    color: #40a2a8;
 }
 
 /* Columns */
@@ -307,19 +307,10 @@
 }
 
 .dd-header {
-    font-size: 32px;
-    font-weight: 50;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-right: 64px;
-}
-
-.dd-subheader {
-    font-size: 24px;
-    font-weight: 50;
-    color: #F8AE2C;
-    letter-spacing: 0.1em;
+    height: 46px;
+    width: auto;
+    object-fit: scale-down;
+    margin-right: 60px;
 }
 
 .user-info {

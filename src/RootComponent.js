@@ -63,7 +63,7 @@ export default class RootComponent extends React.Component {
             <div>
                 <header>
                     <div className="dd-nav">
-                        <a className="dd-header">Dragondelve</a>
+                        <img className='dd-header' src='/dd-small-banner.png'  alt='Dragondelve Logo' ></img>
                         <a className="dd-subheader">Gacha</a>
                         <UserInfo identity={this.state.identity} energyCount={this.state.energyCount} userId={this.state.userId}/>
                     </div>
