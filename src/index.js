@@ -7,7 +7,6 @@ import RootComponent from './RootComponent';
 import LoginScreen from './login/LoginScreen';
 import RegisterScreen from './login/RegisterScreen';
 
-
 ReactDOM.render(
     <Router>
         <Routes>
