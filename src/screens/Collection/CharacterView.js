@@ -27,6 +27,10 @@ export default class CharacterView extends React.Component {
     showDescription = () => this.setState({showDescription: true});
 
     hideDescription = () => this.setState({ showDescription: false });
+
+    downloadImage = () => {
+        window.open(`${process.env.REACT_APP_API_URL}/${this.props.character.template.id}/full.png`)
+    }
     render() {
         const rollStyle = {
             backgroundImage: `url(${process.env.REACT_APP_API_URL}/${this.props.character.template.id}/full.png)`,
@@ -48,7 +52,10 @@ export default class CharacterView extends React.Component {
                         className={`scale second-layer character-card rarity-${this.props.character.template.rarity}`}
                         style={rollStyle}
                     >
-                        <div onMouseLeave={this.hideDescription} onMouseEnter={this.showDescription} className='description-button float-right'>?</div>
+                        <div className="float-right">
+                            <div onMouseLeave={this.hideDescription} onMouseEnter={this.showDescription} className="description-button">?</div>
+                            <div onClick={this.downloadImage} className="download-button">v</div>
+                        </div>
                         {this.state.showDescription && (
                             <div className='description-tooltip-container scale second-layer'>
                                 <span className='description-tooltip'>{this.props.character.template.description}</span>

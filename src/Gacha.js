@@ -23,8 +23,7 @@ export default class Gacha extends React.Component {
 
         const screens = [
             {id: 'collection', name: 'My Collection'},
-            {id: 'roll', name: 'Roll'},
-            {id: 'explore', name: 'Explore'}
+            {id: 'roll', name: 'Roll'}
         ];
 
         this.state = {
