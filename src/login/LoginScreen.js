@@ -46,12 +46,9 @@ export default class LoginScreen extends React.Component {
             body: JSON.stringify({identity: this.state.username, password: this.state.password})
         }).then(response => {
             if (!response.ok) {
-                console.log('Network response was not ok');
-                return;
-            } else {
-                this.setState({ doNotMatch: true })
-            }
-            window.location.href = '/';
+                this.setState({ doNotMatch: true });
+            else
+                window.location.href = '/';
         });
     };
 
