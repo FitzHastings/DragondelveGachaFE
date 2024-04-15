@@ -45,7 +45,7 @@ export default class LoginScreen extends React.Component {
             credentials: 'include',
             body: JSON.stringify({identity: this.state.username, password: this.state.password})
         }).then(response => {
-            if (!response.ok) {
+            if (!response.ok)
                 this.setState({ doNotMatch: true });
             else
                 window.location.href = '/';
