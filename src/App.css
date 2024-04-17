@@ -248,6 +248,10 @@
     border: 3px solid #40a2a8;
 }
 
+.card-width {
+    width: 58.85vh;
+}
+
 /* Navigation */
 
 .active-nav {

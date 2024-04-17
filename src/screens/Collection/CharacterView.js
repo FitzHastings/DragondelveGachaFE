@@ -53,7 +53,8 @@ export default class CharacterView extends React.Component {
                         style={rollStyle}
                     >
                         <div className="float-right">
-                            <div onMouseLeave={this.hideDescription} onMouseEnter={this.showDescription} className="description-button">?</div>
+                            <div onMouseLeave={this.hideDescription} onMouseEnter={this.showDescription} className="description-button">?
+                            </div>
                             <div onClick={this.downloadImage} className="download-button">v</div>
                         </div>
                         {this.state.showDescription && (
@@ -61,10 +62,12 @@ export default class CharacterView extends React.Component {
                                 <span className='description-tooltip'>{this.props.character.template.description}</span>
                             </div>
                         )}
-                        {/*<div className='quote-box'>*/}
-                        {/*    <span className='quote-text'>"{this.props.character.template.quote}"</span>*/}
-                        {/*</div>*/}
                     </div>
+                </div>
+                <div className='character-card-container'>
+                    <button className='scale second-layer action-button card-width'>
+                        <a className='button-label'>✨ Harvest</a>
+                 </button>
                 </div>
             </div>
         );

@@ -120,9 +120,11 @@ class RerollContent extends React.Component {
                         </div>
                     </div>
                 </div>
-                <button className="action-button second-layer float-right" onClick={() => this.props.onUserEnergySpent(1)}>
-                    <a className="button-label">Roll Again 1 ⚡</a>
-                </button>
+                <div className="character-card-container">
+                    <button className="action-button second-layer card-width" onClick={() => this.props.onUserEnergySpent(1)}>
+                        <a className="button-label">Roll Again 1 ⚡</a>
+                    </button>
+                </div>
             </div>
         );
     }

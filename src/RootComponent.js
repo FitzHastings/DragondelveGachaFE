@@ -51,7 +51,7 @@ export default class RootComponent extends React.Component {
                 return;
             }
             console.log(user);
-            this.setState({identity: user.identity, energyCount: user.currentEnergy});
+            this.setState({identity: user.identity, energyCount: user.currentEnergy, starCount: user.currentStar || 0});
         }).catch((err) => {
             console.error(err);
             window.location.href = '/login';
@@ -65,7 +65,7 @@ export default class RootComponent extends React.Component {
                     <div className="dd-nav">
                         <img className='dd-header' src='/dd-small-banner.png'  alt='Dragondelve Logo' ></img>
                         <a className="dd-subheader">Gacha</a>
-                        <UserInfo identity={this.state.identity} energyCount={this.state.energyCount} userId={this.state.userId}/>
+                        <UserInfo identity={this.state.identity} energyCount={this.state.energyCount} starCount={this.state.starCount} userId={this.state.userId}/>
                     </div>
                 </header>
                 <Gacha userId={this.state.userId} onUserEnergySpent={this.onUserEnergySpent}/>
