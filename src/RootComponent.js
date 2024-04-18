@@ -37,6 +37,16 @@ export default class RootComponent extends React.Component {
         return false;
     };
 
+    onStarsEarned = (amount) => {
+        const newStarsCount = this.state.starCount + amount;
+        if (newStarsCount >= 0) {
+            this.setState({starCount: newStarsCount});
+            return true;
+
+        }
+        return false;
+    }
+
     componentDidMount() {
         fetch(
             `${process.env.REACT_APP_API_URL}/user`,
@@ -51,7 +61,7 @@ export default class RootComponent extends React.Component {
                 return;
             }
             console.log(user);
-            this.setState({identity: user.identity, energyCount: user.currentEnergy, starCount: user.currentStar || 0});
+            this.setState({identity: user.identity, energyCount: user.currentEnergy, starCount: user.currentStars || 0});
         }).catch((err) => {
             console.error(err);
             window.location.href = '/login';
@@ -68,7 +78,7 @@ export default class RootComponent extends React.Component {
                         <UserInfo identity={this.state.identity} energyCount={this.state.energyCount} starCount={this.state.starCount} userId={this.state.userId}/>
                     </div>
                 </header>
-                <Gacha userId={this.state.userId} onUserEnergySpent={this.onUserEnergySpent}/>
+                <Gacha userId={this.state.userId} onUserEnergySpent={this.onUserEnergySpent} onStarsEarned={this.onStarsEarned}/>
             </div>
         );
     }

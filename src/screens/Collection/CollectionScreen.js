@@ -47,13 +47,28 @@ export default class CollectionScreen extends React.Component {
         this.setState({displaying: character, details: true});
     }
 
+    handleHarvest = (characterId) => {
+        fetch(`${process.env.REACT_APP_API_URL}/harvest/${characterId}`, {
+            method: 'POST',
+            credentials: 'include',
+        }).then(async (res) => {
+            const result = await res.json();
+            if (!result.starsEarned) return;
+            this.props.onStarsEarned(result.starsEarned);
+            const newCharacters = this.state.characters.filter(character => character.id !== characterId);
+            this.setState({details: false, characters: newCharacters});
+        }).catch((err) => {
+            console.error(err);
+        });
+    }
+
     render() {
         if (this.state.details) {
             return (
                 <div>
                     <CollectionTools showBack={this.state.details} onBack={this.handleBack}/>
                     <div className='scale first-layer'>
-                    <CharacterView character={this.state.displaying} ></CharacterView>
+                    <CharacterView character={this.state.displaying} onHarvest={this.handleHarvest}></CharacterView>
                     </div>
                 </div>
             )

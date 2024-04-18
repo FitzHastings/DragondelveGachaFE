@@ -30,7 +30,7 @@ export default class MainContent extends React.Component {
         if (this.props.currentScreen.id === 'roll')
             currentScreen = <RollScreen onUserEnergySpent={this.props.onUserEnergySpent}/>;
         else if (this.props.currentScreen.id === 'collection')
-            currentScreen = <CollectionScreen/>;
+            currentScreen = <CollectionScreen onStarsEarned={this.props.onStarsEarned}/>;
         else if (this.props.currentScreen.id === 'enhance')
             currentScreen = <EnhanceScreen/>
 

@@ -28,6 +28,8 @@ export default class CharacterView extends React.Component {
 
     hideDescription = () => this.setState({ showDescription: false });
 
+    onHarvest = () => this.props.onHarvest(this.props.character.id);
+
     downloadImage = () => {
         window.open(`${process.env.REACT_APP_API_URL}/${this.props.character.template.id}/full.png`)
     }
@@ -66,7 +68,7 @@ export default class CharacterView extends React.Component {
                 </div>
                 <div className='character-card-container'>
                     <button className='scale second-layer action-button card-width'>
-                        <a className='button-label'>✨ Harvest</a>
+                        <a className='button-label' onClick={this.onHarvest}>✨ Harvest</a>
                  </button>
                 </div>
             </div>
