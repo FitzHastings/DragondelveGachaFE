@@ -17,7 +17,7 @@ import React from 'react';
 import MissingScreen from './screens/MissingScreen';
 import RollScreen from './screens/Roll/RollScreen';
 import CollectionScreen from './screens/Collection/CollectionScreen';
-import EnhanceScreen from './screens/Enhance/EnhanceScreen';
+import FusionScreen from './screens/Fusion/FusionScreen';
 
 export default class MainContent extends React.Component {
     constructor(props) {
@@ -31,8 +31,8 @@ export default class MainContent extends React.Component {
             currentScreen = <RollScreen onUserEnergySpent={this.props.onUserEnergySpent}/>;
         else if (this.props.currentScreen.id === 'collection')
             currentScreen = <CollectionScreen onStarsEarned={this.props.onStarsEarned}/>;
-        else if (this.props.currentScreen.id === 'enhance')
-            currentScreen = <EnhanceScreen/>
+        else if (this.props.currentScreen.id === 'fusion')
+            currentScreen = <FusionScreen/>
 
         return (
             <div>

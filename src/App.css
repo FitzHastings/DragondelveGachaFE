@@ -50,6 +50,14 @@
     width: 500px;
 }
 
+/* Fusion Screen */
+
+.huge-question-mark {
+    color: #7f7f7f;
+    font-size: 200px;
+    text-align: center;
+}
+
 /* Collection Screen */
 
 .collection-container {
@@ -61,8 +69,8 @@
 
 .card-container {
     flex: 1;
-    min-width: 300px; /* set the width of your choice */
-    height: 423px; /* set the height of your choice */
+    min-width: 300px;
+    height: 423px;
 }
 
 .collection-card {
