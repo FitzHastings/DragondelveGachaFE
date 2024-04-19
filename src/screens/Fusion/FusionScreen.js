@@ -16,13 +16,14 @@
 import React from 'react';
 import CollectionTools from '../Collection/CollectionTools';
 import CharacterView from '../Collection/CharacterView';
-import {fusionMocks} from '../../mocks';
+import {fusionMocks, mockRoll} from '../../mocks';
+import FusionResultScreen from './FusionResultScreen';
 
 export default class FusionScreen extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = { fusions: fusionMocks };
+        this.state = { fusions: fusionMocks, fusionDone: false};
     }
 
     componentDidMount() {
@@ -40,16 +41,26 @@ export default class FusionScreen extends React.Component {
         }); */
     }
 
+    onFusion = (id) => {
+        console.log(id);
+        this.setState({ fusionDone: true, character: mockRoll });
+    }
+
     render() {
         const fusionCards = this.state.fusions.map(fusion => {
-            return <FusionScale fusion={fusion}/>;
+            return <FusionScale onFusion={this.onFusion} fusion={fusion}/>;
         });
 
-        return (
+        if(!this.state.fusionDone) return (
             <div>
                 {fusionCards}
             </div>
         );
+        else return (
+            <div className='scale first-layer'>
+                <FusionResultScreen character={this.state.character}></FusionResultScreen>
+            </div>
+        )
     }
 }
 
@@ -64,8 +75,14 @@ class FusionScale extends React.Component {
             return <TemplateCard template={template}/>;
         });
         return (
-            <div className='collection-container scale first-layer'>
-                {templateCards}
+            <div className='scale first-layer'>
+                <div className='scale-title-label'>{this.props.fusion.name}</div>
+                <div className='collection-container'>
+                    {templateCards}
+                </div>
+                <button onClick={() => this.props.onFusion(this.props.fusion.id)} className='action-button second-layer scale'>
+                    <span className='button-label'>Fuse - ✨ {this.props.fusion.cost}</span>
+                </button>
             </div>
         )
     }
