@@ -32,7 +32,7 @@ export default class MainContent extends React.Component {
         else if (this.props.currentScreen.id === 'collection')
             currentScreen = <CollectionScreen onStarsEarned={this.props.onStarsEarned}/>;
         else if (this.props.currentScreen.id === 'fusion')
-            currentScreen = <FusionScreen/>
+            currentScreen = <FusionScreen onStarsEarned={this.props.onStarsEarned}/>
 
         return (
             <div>
