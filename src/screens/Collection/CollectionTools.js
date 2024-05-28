@@ -32,6 +32,13 @@ export default class CollectionTools extends React.Component {
                 >
                     {'<'}
                 </button>
+                <div className='float-right' style={this.props.showBack ? invisible : visible}>
+                    <div className='scale first-layer'>
+                        <div className='roll-setting'>Collection Status</div>
+                        <span>200 / 340</span>
+                    </div>
+                </div>
+
             </div>
         );
     }

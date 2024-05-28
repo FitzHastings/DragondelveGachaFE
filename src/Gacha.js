@@ -16,6 +16,7 @@
 import React from 'react';
 import NavBar from './NavBar';
 import MainContent from './MainContent';
+import AuxiliaryTools from './controls/AuxiliaryTools';
 
 export default class Gacha extends React.Component {
     constructor(props) {
@@ -61,6 +62,9 @@ export default class Gacha extends React.Component {
                     />
                 </div>
                 <div className="right-pad flex-column">
+                    <AuxiliaryTools
+                        show={true}
+                    />
                 </div>
             </div>
         );

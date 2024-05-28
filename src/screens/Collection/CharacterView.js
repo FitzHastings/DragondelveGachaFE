@@ -67,8 +67,8 @@ export default class CharacterView extends React.Component {
                     </div>
                 </div>
                 <div className='character-card-container'>
-                    <button className='scale second-layer action-button card-width'>
-                        <a className='button-label' onClick={this.onHarvest}>✨ Harvest</a>
+                    <button onClick={this.onHarvest} className='scale second-layer action-button card-width'>
+                        <a className='button-label'>✨ Harvest</a>
                  </button>
                 </div>
             </div>

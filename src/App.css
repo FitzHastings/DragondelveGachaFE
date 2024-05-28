@@ -69,7 +69,7 @@
 
 .card-container {
     flex: 1;
-    min-width: 300px;
+    width: 300px;
     height: 423px;
 }
 
@@ -84,12 +84,19 @@
 }
 
 .action-button.nav-small {
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-radius: 24px;
 }
 
 .bottom-line {
     border-bottom: 3px solid #1a1a1a;
 }
+
+.collection-choice-container {
+    display: inline-grid;
+}
+
 /* Roll Screen */
 
 .roll-center {
@@ -239,6 +246,10 @@
     float: right;
 }
 
+.absolute {
+    position: fixed;
+}
+
 .button-label {
     font-family: 'JetBrains Mono', monospace;
     font-size: 20px;
@@ -299,6 +310,7 @@
 .right-pad {
     background: black;
     max-width: 25%;
+    min-width: 320px;
     float: left;
 }
 
@@ -358,6 +370,12 @@
     padding-left: 10px;
     font-size: 32px;
     color: #61666B;
+}
+
+/* Auxiliary Tools */
+
+.auxtool-container {
+    margin: 0 10px
 }
 
 /* Rarity Indicators */

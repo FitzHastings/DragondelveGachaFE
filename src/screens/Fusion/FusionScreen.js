@@ -102,7 +102,7 @@ class FusionScale extends React.Component {
                             <span className="description-tooltip">{this.props.fusion.description || 'test description'}</span>
                         </div>
                     )}
-0                </div>
+                </div>
                 <button onClick={() => this.props.onFusion(this.props.fusion.id, this.props.fusion.cost)}
                         className="action-button second-layer scale">
                     <span className="button-label">Fuse - ✨ {this.props.fusion.cost}</span>

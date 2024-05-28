@@ -57,6 +57,7 @@ export default class LoginScreen extends React.Component {
         const visible = {color: '#F8AE2C', opacity: '100%'};
         return (
             <div className='login-container-form'>
+                <img className='dd-header' src='/dd-small-banner.png' alt='Dragondelve Logo'></img>
                 <form className="scale first-layer login-form" onSubmit={this.handleSubmit}>
                     <span className="scale-title-label">Login</span>
                     <div>
