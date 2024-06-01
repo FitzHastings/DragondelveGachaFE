@@ -23,6 +23,7 @@ export default class CollectionTools extends React.Component {
     render() {
         const invisible = {opacity: '0%'};
         const visible = {opacity: '100%'};
+        console.log(this.props.totalTemplateCount);
         return (
             <div className='bottom-line'>
                 <button
@@ -35,7 +36,7 @@ export default class CollectionTools extends React.Component {
                 <div className='float-right' style={this.props.showBack ? invisible : visible}>
                     <div className='scale first-layer'>
                         <div className='roll-setting'>Collection Status</div>
-                        <span>200 / 340</span>
+                        <span> {this.props.userTemplateCount || 0} / {this.props.totalTemplateCount || 0}</span>
                     </div>
                 </div>
 

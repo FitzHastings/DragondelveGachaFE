@@ -21,7 +21,7 @@ export default class CollectionScreen extends React.Component {
     constructor(props) {
         super(props);
 
-        this.state = {characters: [], details: false, displaying: null};
+        this.state = {characters: [], details: false, displaying: null, totalTemplateCount: 0, userTemplateCount: 0};
     }
 
     componentDidMount() {
@@ -33,8 +33,9 @@ export default class CollectionScreen extends React.Component {
                 credentials: 'include',
             }
         ).then(async (res) => {
-            const collection = await res.json();
-            this.setState({characters: collection});
+            const response = await res.json();
+            const collection = response.responseCollection;
+            this.setState({characters: collection, totalTemplateCount: response.templateCount, userTemplateCount: response.uniqueCount});
         }).catch((err) => {
             console.error(err);
         });
@@ -49,8 +50,9 @@ export default class CollectionScreen extends React.Component {
                     credentials: 'include',
                 }
             ).then(async (res) => {
-                const collection = await res.json();
-                this.setState({characters: collection});
+                const response = await res.json();
+                const collection = response.responseCollection;
+                this.setState({characters: collection, totalTemplateCount: response.templateCount, userTemplateCount: response.uniqueCount});
             }).catch((err) => {
                 console.error(err);
             });
@@ -82,10 +84,11 @@ export default class CollectionScreen extends React.Component {
     }
 
     render() {
+        console.log(this.state.totalTemplateCount);
         if (this.state.details) {
             return (
                 <div>
-                    <CollectionTools showBack={this.state.details} onBack={this.handleBack}/>
+                    <CollectionTools showBack={this.state.details} onBack={this.handleBack} totalTemplateCount={this.state.totalTemplateCount} userTemplateCount={this.state.userTemplateCount}/>
                     <div className='scale first-layer'>
                     <CharacterView character={this.state.displaying} onHarvest={this.handleHarvest}></CharacterView>
                     </div>
@@ -98,7 +101,7 @@ export default class CollectionScreen extends React.Component {
 
         return (
             <div>
-                <CollectionTools showBack={this.state.details} onBack={this.handleBack}></CollectionTools>
+                <CollectionTools showBack={this.state.details} onBack={this.handleBack} totalTemplateCount={this.state.totalTemplateCount} userTemplateCount={this.state.userTemplateCount}></CollectionTools>
                 <div className="collection-container">
                     {collectionCards}
                 </div>
