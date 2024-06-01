@@ -21,21 +21,29 @@ export default class AuxiliaryTools extends React.Component {
         this.state = {};
     }
 
+    handleSettingChange = (event) => {
+        this.props.onSettingChange(event.target.value);
+    }
+
+    handleSortingChange = (event) => {
+        this.props.onSortingChange(event.target.value);
+    }
+
     render() {
         if (this.props?.show) {
             return (
                 <div className='auxtool-container'>
                     <div className='scale first-layer'>
                         <div className='roll-setting'>Sort By</div>
-                        <select className="scale second-layer full-width">
+                        <select onChange={this.handleSortingChange} className="scale second-layer full-width">
                             <option value="default">Default</option>
                             <option value="name">Name</option>
-                            <option value="Rarity">Rarity</option>
+                            <option value="rarity">Rarity</option>
                         </select>
                     </div>
                     <div className='scale first-layer'>
                         <div className='roll-setting'>Setting</div>
-                        <select className="scale second-layer full-width">
+                        <select onChange={this.handleSettingChange} className="scale second-layer full-width">
                             <option value="all">All</option>
                             <option value="TWINT">TWINT</option>
                             <option value="Aether Storm">Aether Storm</option>

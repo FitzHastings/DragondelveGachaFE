@@ -26,11 +26,12 @@ export default class MainContent extends React.Component {
 
     render() {
         let currentScreen = <MissingScreen/>;
+        console.log(this.props.setting)
 
         if (this.props.currentScreen.id === 'roll')
             currentScreen = <RollScreen onUserEnergySpent={this.props.onUserEnergySpent}/>;
         else if (this.props.currentScreen.id === 'collection')
-            currentScreen = <CollectionScreen onStarsEarned={this.props.onStarsEarned}/>;
+            currentScreen = <CollectionScreen onStarsEarned={this.props.onStarsEarned} setting={this.props.setting} sorting={this.props.sorting}/>;
         else if (this.props.currentScreen.id === 'fusion')
             currentScreen = <FusionScreen onStarsEarned={this.props.onStarsEarned}/>
 

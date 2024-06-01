@@ -25,6 +25,7 @@ export default class CollectionScreen extends React.Component {
     }
 
     componentDidMount() {
+        console.log(this.props.setting);
         fetch(
             `${process.env.REACT_APP_API_URL}/collection`,
             {
@@ -38,6 +39,24 @@ export default class CollectionScreen extends React.Component {
             console.error(err);
         });
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.setting !== prevProps.setting || this.props.sorting !== prevProps.sorting) {
+            fetch(
+                `${process.env.REACT_APP_API_URL}/collection?setting=${encodeURIComponent(this.props.setting)}&sorting=${encodeURIComponent(this.props.sorting)}`,
+                {
+                    method: 'GET',
+                    credentials: 'include',
+                }
+            ).then(async (res) => {
+                const collection = await res.json();
+                this.setState({characters: collection});
+            }).catch((err) => {
+                console.error(err);
+            });
+        }
+    }
+
 
     handleBack = () => {
         this.setState({details: false});

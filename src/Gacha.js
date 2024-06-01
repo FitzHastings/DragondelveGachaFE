@@ -30,7 +30,9 @@ export default class Gacha extends React.Component {
 
         this.state = {
             currentScreen: screens[0],
-            screens
+            screens,
+            setting: 'all',
+            sorting: 'default'
         };
     }
 
@@ -42,8 +44,16 @@ export default class Gacha extends React.Component {
                 break;
             }
         }
-        this.setState({currentScreen: newCurrentScreen, screens: this.state.screens});
+        this.setState({currentScreen: newCurrentScreen, setting: 'all', sorting: 'default'});
     };
+
+    onSettingChange = (value) => {
+        this.setState({setting: value});
+    }
+
+    onSortingChange = (value) => {
+        this.setState({sorting: value});
+    }
 
     render() {
         return (
@@ -59,11 +69,15 @@ export default class Gacha extends React.Component {
                         currentScreen={this.state.currentScreen}
                         onUserEnergySpent={this.props.onUserEnergySpent}
                         onStarsEarned={this.props.onStarsEarned}
+                        sorting={this.state.sorting}
+                        setting={this.state.setting}
                     />
                 </div>
                 <div className="right-pad flex-column">
                     <AuxiliaryTools
-                        show={true}
+                        show={this.state.currentScreen.id === 'collection'}
+                        onSortingChange={this.onSortingChange}
+                        onSettingChange={this.onSettingChange}
                     />
                 </div>
             </div>
