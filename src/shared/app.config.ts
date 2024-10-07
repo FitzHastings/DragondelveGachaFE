@@ -11,23 +11,18 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
-*/
+ */
 
-import React from 'react';
+import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
+import { provideRouter } from '@angular/router';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-export default class MissingScreen extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+import { routes } from './app.routes';
 
-    render() {
-        return (
-            <div className="padded-container">
-                <div className="scale first-layer full-width">
-                    <h1>Nothing to Display</h1>
-                    <p>There is no component to render for the given navigation</p>
-                </div>
-            </div>
-        );
-    }
-}
+export const appConfig: ApplicationConfig = {
+    providers: [
+        provideHttpClient(withInterceptorsFromDi()),
+        provideZoneChangeDetection({ eventCoalescing: true }),
+        provideRouter(routes)
+    ]
+};
