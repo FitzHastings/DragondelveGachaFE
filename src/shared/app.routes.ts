@@ -14,11 +14,17 @@
  */
 
 import { Routes } from '@angular/router';
-import {AppComponent} from './app.component';
+
+import { LoginComponent } from '../feature/auth/login/login.component';
+import { SignupComponent } from '../feature/auth/signup/signup.component';
+
+import { AppComponent } from './app.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: AppComponent
-    }
+    },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent }
 ];

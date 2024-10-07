@@ -19,35 +19,31 @@ html, body {
 }
 
 :root {
-    --backdrop-color: #2E3440;
+    --backdrop-color: black;
     --backround-alt-color: #353b49;
-    --background-color: #3B4252;
-    --content-color: #434C5E;
-    --highlight-color: #4C566A;
+    --background-color: #1f1e1e;
+    --content-color: #373535;
+    --highlight-color: #434141;
 
     --text-color: #E5E9F0;
-    --nord6: #ECEFF4;
 
-    --action-color: #8FBCBB;
-    --nord8: #88C0D0;
-    --nord9: #81A1C1;
-    --nord10: #5E81AC;
+    --action-color: #3fa2a8;
 
-    --error-color: #BF616A;
-    --error-content-color: #984D54;
-    --error-background-color: #85434A;
+    --error-color: #a03e44;
+    --error-content-color: #FF00FF;
+    --error-background-color: #FF00FF;
 
-    --notice-color: #D08770;
+    --notice-color: #FF00FF;
 
-    --warning-color: #EBCB8B;
-    --warning-content-color: #BCA26F;
-    --warning-background-color: #a48e61;
+    --warning-color: #FF00FF;
+    --warning-content-color: #FF00FF;
+    --warning-background-color: #FF00FF;
 
-    --confirmation-color: #A3BE8C;
-    --confirmation-content-color: #829870;
-    --confirmation-background-color: #728562;
+    --confirmation-color: #FF00FF;
+    --confirmation-content-color: #FF00FF;
+    --confirmation-background-color: #FF00FF;
 
-    --misc-color: #B48EAD;
+    --misc-color: #FF00FF;
 }
 
 @font-face {
@@ -71,7 +67,7 @@ body {
 .form-button {
     background-color: var(--content-color);
     padding: 7px;
-    color: #fff;
+    color: var(--text-color);
     border: 3px solid var(--content-color);
     border-radius: 4px;
     cursor: pointer;
