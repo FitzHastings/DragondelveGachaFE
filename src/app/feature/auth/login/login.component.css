@@ -13,13 +13,18 @@
    limitations under the License.
  */
 
-.sign-up-container {
-    max-width: 400px;
+.login-container {
+    width: 400px;
     margin: 0 auto;
-    background-color: var(--background-color);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--background-color);
+    border-radius: 5px;
+    transition: 1000ms;
+}
+
+.login-container:hover {
+    transition: 600ms;
+    box-shadow: 0 0 40px var(--error-color);
 }
 
 .center-banner {
@@ -36,10 +41,6 @@ h2 {
     font-size: 24px;
 }
 
-button {
-    width: 100%;
-}
-
 .form-group {
     margin-bottom: 15px;
 }
@@ -47,15 +48,26 @@ button {
 label {
     display: block;
     margin-bottom: 5px;
-    color: var(--text-color);
 }
 
 input {
     width: 100%;
 }
 
+input:enabled:focus {
+    border-color: var(--action-color);
+}
+
+button {
+    width: 100%;
+}
+
 .error {
     color: var(--error-color);
-    font-size: 0.9em;
-    margin-top: 5px;
+}
+
+.error-message {
+    color: var(--error-color);
+    margin-top: 10px;
+    text-align: center;
 }

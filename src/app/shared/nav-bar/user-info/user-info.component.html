@@ -1,5 +1,4 @@
-
-/* Copyright 2024 Prokhor Kalinin
+<!-- Copyright 2024 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -12,12 +11,7 @@
    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
    See the License for the specific language governing permissions and
    limitations under the License.
- */
+-->
 
-import { bootstrapApplication } from '@angular/platform-browser';
-
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
-
-bootstrapApplication(AppComponent, appConfig)
-    .catch((err) => console.error(err));
+<span class="user-info">{{ user()?.username + ' ⚡ ' + user()?.energy + ' ✨ ' + user()?.dust }}</span>
+<button (click)="onLogout()">X</button>

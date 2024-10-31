@@ -1,4 +1,3 @@
-
 /* Copyright 2024 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +13,11 @@
    limitations under the License.
  */
 
-import { bootstrapApplication } from '@angular/platform-browser';
-
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
-
-bootstrapApplication(AppComponent, appConfig)
-    .catch((err) => console.error(err));
+export interface User {
+    id: number;
+    username: string;
+    gender: 'UNKNOWN' | 'MALE' | 'FEMALE';
+    role: 'admin' | 'user' | 'guest';
+    energy: number;
+    dust: number;
+}

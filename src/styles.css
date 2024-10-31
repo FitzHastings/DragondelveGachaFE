@@ -19,15 +19,15 @@ html, body {
 }
 
 :root {
-    --backdrop-color: black;
-    --backround-alt-color: #353b49;
+    --backdrop-color: #0A0A0A;
+    --backround-alt-color: #141414;
     --background-color: #1f1e1e;
-    --content-color: #373535;
-    --highlight-color: #434141;
+    --content-color: #292929;
+    --highlight-color: #333333;
 
     --text-color: #E5E9F0;
 
-    --action-color: #3fa2a8;
+    --action-color: #4F759B;
 
     --error-color: #a03e44;
     --error-content-color: #FF00FF;

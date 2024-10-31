@@ -1,4 +1,3 @@
-
 /* Copyright 2024 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +13,19 @@
    limitations under the License.
  */
 
-import { bootstrapApplication } from '@angular/platform-browser';
+import { Routes } from '@angular/router';
 
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { LoginComponent } from './feature/auth/login/login.component';
+import { SignupComponent } from './feature/auth/signup/signup.component';
+import { MainComponent } from './feature/main/main.component';
 
-bootstrapApplication(AppComponent, appConfig)
-    .catch((err) => console.error(err));
+export const routes: Routes = [
+    {
+        path: '',
+        component: MainComponent,
+        children: [
+        ]
+    },
+    { path: 'login', component: LoginComponent },
+    { path: 'signup', component: SignupComponent }
+];

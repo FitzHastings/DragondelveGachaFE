@@ -18,6 +18,7 @@ import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 
 import { apiUrl } from './utils/api-url';
+import { User } from './interfaces/user';
 
 /**
  * AuthService is responsible for handling authentication-related operations,
@@ -71,17 +72,17 @@ export class AuthService {
      *
      * @return An Observable emitting the username if authenticated, otherwise an empty string.
      */
-    public isAuthenticated(): Observable<string> {
+    public isAuthenticated(): Observable<User | null> {
         const token = this.getToken();
         if (!token)
-            return of('');
+            return of(null);
 
 
-        return this.http.get<{ session: { username: string } }>(this.verifyTokenUrl, {
+        return this.http.get<{ user: User }>(this.verifyTokenUrl, {
             headers: { 'Authorization': `Bearer ${token}` }
         }).pipe(
-            map((response) => response.session.username),
-            catchError(() => of(''))
+            map((response) => response.user),
+            catchError(() => of(null))
         );
     }
 

@@ -13,18 +13,19 @@
    limitations under the License.
  */
 
-import { Routes } from '@angular/router';
+import { Component } from '@angular/core';
 
-import { LoginComponent } from '../feature/auth/login/login.component';
-import { SignupComponent } from '../feature/auth/signup/signup.component';
+import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
 
-import { AppComponent } from './app.component';
+@Component({
+    selector: 'app-main',
+    standalone: true,
+    imports: [
+        NavBarComponent
+    ],
+    templateUrl: './main.component.html',
+    styleUrl: './main.component.css'
+})
+export class MainComponent {
 
-export const routes: Routes = [
-    {
-        path: '',
-        component: AppComponent
-    },
-    { path: 'login', component: LoginComponent },
-    { path: 'signup', component: SignupComponent }
-];
+}

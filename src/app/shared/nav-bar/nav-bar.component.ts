@@ -1,4 +1,3 @@
-
 /* Copyright 2024 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,10 +13,21 @@
    limitations under the License.
  */
 
-import { bootstrapApplication } from '@angular/platform-browser';
+import { Component } from '@angular/core';
 
-import { appConfig } from './app/app.config';
-import { AppComponent } from './app/app.component';
+import { NavButtonComponent } from './nav-button/nav-button.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
-bootstrapApplication(AppComponent, appConfig)
-    .catch((err) => console.error(err));
+@Component({
+    selector: 'app-nav-bar',
+    standalone: true,
+    imports: [
+        NavButtonComponent,
+        UserInfoComponent
+    ],
+    templateUrl: './nav-bar.component.html',
+    styleUrl: './nav-bar.component.css'
+})
+export class NavBarComponent {
+
+}
