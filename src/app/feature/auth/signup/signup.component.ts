@@ -53,9 +53,8 @@ export class SignupComponent {
                 next: () => {
                     this.router.navigate(['/login']);
                 },
-                error: (error) => {
+                error: () => {
                     this.errorMessage = 'Registration failed. Please try again.';
-                    console.error(error);
                 }
             });
         } else {
