@@ -18,12 +18,17 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './feature/auth/login/login.component';
 import { SignupComponent } from './feature/auth/signup/signup.component';
 import { MainComponent } from './feature/main/main.component';
+import { RollComponent } from './feature/main/roll/roll.component';
 
 export const routes: Routes = [
     {
         path: '',
         component: MainComponent,
         children: [
+            {
+                path: 'roll',
+                component: RollComponent
+            }
         ]
     },
     { path: 'login', component: LoginComponent },

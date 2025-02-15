@@ -14,6 +14,7 @@
  */
 
 import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 
 import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
 
@@ -21,7 +22,8 @@ import { NavBarComponent } from '../../shared/nav-bar/nav-bar.component';
     selector: 'app-main',
     standalone: true,
     imports: [
-        NavBarComponent
+        NavBarComponent,
+        RouterOutlet
     ],
     templateUrl: './main.component.html',
     styleUrl: './main.component.css'
