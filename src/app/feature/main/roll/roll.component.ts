@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal, WritableSignal } from '@angular/core';
 
 @Component({
     selector: 'app-roll',
@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
     styleUrl: './roll.component.css'
 })
 export class RollComponent {
+    protected readonly isRolling: WritableSignal<boolean> = signal<boolean>(false);
 
+    protected onRoll(): void {
+        this.isRolling.set(true);
+    }
+
+    protected onHarvest(): void {
+        console.log('harvest');
+    }
 }

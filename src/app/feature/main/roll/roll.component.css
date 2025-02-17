@@ -11,6 +11,29 @@
     align-items: center;
 }
 
+.image-container {
+    border-radius: 10px;
+    border: 1px solid #4F759B;
+    height: auto;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
 .description {
     margin-bottom: 10px;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-flow: row wrap;
+    gap: 20px;
 }
