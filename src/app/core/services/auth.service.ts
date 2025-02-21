@@ -17,8 +17,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 
-import { apiUrl } from './utils/api-url';
-import { User } from './interfaces/user';
+import { apiUrl } from '../utils/api-url';
+import { User } from '../interfaces/user';
 
 /**
  * AuthService is responsible for handling authentication-related operations,

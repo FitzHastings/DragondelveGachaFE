@@ -18,7 +18,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { NgIf, NgOptimizedImage } from '@angular/common';
 import { Router } from '@angular/router';
 
-import { AuthService } from '../../../core/auth.service';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
     selector: 'app-login',
