@@ -1,0 +1,38 @@
+<div class="scale roll-scale">
+    <header class="scale-header">
+        @if (character() && animationState() === 'idle') {
+            <h3 class="scale-title">{{ character()?.template?.setting?.name }}</h3>
+            <h3 class="scale-title rarity-label">{{ character()?.template?.rarity?.name }}</h3>
+            <div class="title-controls">
+                <button class="action-button"
+                        (mouseenter)="showDescription()"
+                        (mouseleave)="hideDescription()"
+                >?</button>
+                <a target="_blank" href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}">
+                  <button class="action-button">v</button>
+                </a>
+            </div>
+        } @else {
+            <div class="header-padding"></div>
+        }
+    </header>
+    <div class="image-container" appRotateOnHover appShadowOnHover>
+        <div
+            class="gradient-overlay"
+            [@rollAnimation]="animationState()"
+            (@rollAnimation.done)="onAnimationDone()"
+            [class.active]="animationState() === 'rolling'"
+        ></div>
+        <span class="character-name">{{ character()?.name }}</span>
+        @if (showDescription()) {
+            <div class="character-description">{{ character()?.template?.description }}</div>
+        }
+        <div class="character-quote">{{ character()?.template?.quote}}</div>
+
+        <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.path" alt="character"/>
+    </div>
+    <div class="controls">
+        <button (click)="onRoll()" class="action-button long">Roll 1⚡</button>
+        <button (click)="onHarvest()" class="action-button long">Harvest 100✨</button>
+    </div>
+</div>

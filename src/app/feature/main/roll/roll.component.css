@@ -13,36 +13,8 @@
    limitations under the License.
 */
 
-.scale-header {
-    display: grid;
-    grid-template-columns: 2fr 1fr 2fr;
-    align-content: center;
+.description {
     margin-bottom: 10px;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.rarity-label {
-    text-align: center;
-}
-
-.character-name {
-    margin: 0;
-    text-transform: uppercase;
-    font-size: 18px;
-}
-
-.title-controls {
-    display: flex;
-    gap: 10px;
-    justify-content: end;
-    padding-right: 10px;
-}
-
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .roll-scale {
@@ -52,28 +24,8 @@
     align-items: center;
 }
 
-.image-container {
-    border-radius: 10px;
-    height: auto;
-    width: 100%;
-    overflow: hidden;
-    margin-bottom: 20px;
-}
-
-.description {
-    margin-bottom: 10px;
-}
-
-.image {
-    display: block;
-    max-width: 100%;
-    height: auto;
-}
-
-.controls {
+.container {
     display: flex;
-    justify-content: space-around;
-    width: 100%;
-    flex-flow: row wrap;
-    gap: 20px;
+    flex-direction: column;
+    align-items: center;
 }

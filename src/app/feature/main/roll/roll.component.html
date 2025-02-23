@@ -13,25 +13,10 @@
    limitations under the License.
 -->
 
+
 <div class="container">
-    @if (isRolling()) {
-        <div class="scale roll-scale">
-            <header class="scale-header">
-                <h3 class="scale-title">Aether Storm</h3>
-                <h3 class="scale-title rarity-label">RARE</h3>
-                <div class="title-controls">
-                    <button class="action-button">?</button>
-                    <button class="action-button">v</button>
-                </div>
-            </header>
-                <div class="image-container" appRotateOnHover appShadowOnHover>
-                    <img class="image" src="/behold-and-tremble.png" alt="character"/>
-                </div>
-            <div class="controls">
-                <button (click)="onRoll()" class="action-button long">Roll 1⚡</button>
-                <button (click)="onHarvest()" class="action-button long">Harvest 100✨</button>
-            </div>
-        </div>
+    @if (hasRolled()) {
+       <app-roll-scale />
     } @else {
         <div class="scale roll-scale">
             <header class="scale-header">

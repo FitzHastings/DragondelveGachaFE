@@ -16,6 +16,7 @@
 import { GeneralEntity } from './general-entity';
 import { Rarity } from './rarity';
 import { ExternalFile } from './external-file';
+import { World } from './world';
 
 export interface CharacterTemplate extends GeneralEntity {
     id?: number;
@@ -23,7 +24,8 @@ export interface CharacterTemplate extends GeneralEntity {
     description?: string;
     quote?: string;
     isRollable?: boolean;
+    setting?: World
     rarity?: Rarity;
     smallImage?: ExternalFile;
-    largeImage?: ExternalFile;
+    fullImage?: ExternalFile;
 }

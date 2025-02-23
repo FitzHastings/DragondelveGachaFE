@@ -15,10 +15,14 @@
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 import { apiUrl } from '../utils/api-url';
 import { Character } from '../interfaces/character';
 
+@Injectable({
+    providedIn: 'root'
+})
 export class RollService {
     private rollUrl = `${apiUrl}/roll`;
 

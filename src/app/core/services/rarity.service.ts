@@ -15,11 +15,15 @@
 
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
 
 import { apiUrl } from '../utils/api-url';
 import { PagedEntities } from '../interfaces/paged-entities';
 import { Rarity } from '../interfaces/rarity';
 
+@Injectable({
+    providedIn: 'root'
+})
 export class RarityService {
     private fetchRarityUrl = `${apiUrl}/rarity`;
 

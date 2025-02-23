@@ -1,4 +1,4 @@
-/* Copyright 2025 Prokhor Kalinin
+/* Copyright 2024 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,23 +13,17 @@
    limitations under the License.
  */
 
-import { Component, signal, WritableSignal } from '@angular/core';
 
-import { RollScaleComponent } from './roll-scale/roll-scale.component';
+import { GeneralEntity } from './general-entity';
 
-@Component({
-    selector: 'app-roll',
-    standalone: true,
-    templateUrl: './roll.component.html',
-    imports: [
-        RollScaleComponent
-    ],
-    styleUrl: './roll.component.css'
-})
-export class RollComponent {
-    protected readonly hasRolled: WritableSignal<boolean> = signal<boolean>(false);
-
-    protected onRoll(): void {
-        this.hasRolled.set(true);
-    }
+/**
+ * Represents a Data Transfer Object (DTO) for a world.
+ *
+ * This interface defines the structure of the world data that is transferred to server for creation or
+ * modification.
+ */
+export interface World extends GeneralEntity {
+    name?: string;
+    imageIds?: (number | undefined)[];
+    logoId?: number;
 }
