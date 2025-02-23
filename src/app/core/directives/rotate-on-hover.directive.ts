@@ -5,7 +5,7 @@ import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/
     selector: '[appRotateOnHover]'
 })
 export class RotateOnHoverDirective {
-    @Input() protected intensity: number = 5;
+    @Input() public intensity: number = 5;
 
     public constructor(private el: ElementRef, private renderer: Renderer2) {}
 
@@ -26,7 +26,6 @@ export class RotateOnHoverDirective {
 
     @HostListener('mouseleave')
     protected onMouseLeave(): void {
-        // Add a transform with bounceback effect using a cubic bezier curve
         this.renderer.setStyle(this.el.nativeElement, 'transition', 'transform 0.5s cubic-bezier(0.25, 2.0, 0.5, 1)');
         this.renderer.setStyle(this.el.nativeElement, 'transform', 'perspective(1000px) rotateX(0) rotateY(0)');
     }

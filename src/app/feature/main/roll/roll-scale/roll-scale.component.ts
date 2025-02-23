@@ -21,13 +21,15 @@ import { ShadowOnHoverDirective } from '../../../../core/directives/shadow-on-ho
 import { RollService } from '../../../../core/services/roll.service';
 import { Character } from '../../../../core/interfaces/character';
 import { apiUrl } from '../../../../core/utils/api-url';
+import { RarityColorDirective } from '../../../../core/directives/rarity-color.directive';
 
 @Component({
     selector: 'app-roll-scale',
     standalone: true,
     imports: [
         RotateOnHoverDirective,
-        ShadowOnHoverDirective
+        ShadowOnHoverDirective,
+        RarityColorDirective
     ],
     templateUrl: './roll-scale.component.html',
     styleUrl: './roll-scale.component.css',
@@ -80,7 +82,7 @@ export class RollScaleComponent implements OnInit {
         this.showDescription.set(true);
     }
 
-    protected hideDescription(): void {
+    protected onHideDescription(): void {
         this.showDescription.set(false);
     }
 
