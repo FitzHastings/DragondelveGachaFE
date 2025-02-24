@@ -19,6 +19,7 @@ import { LoginComponent } from './feature/auth/login/login.component';
 import { SignupComponent } from './feature/auth/signup/signup.component';
 import { MainComponent } from './feature/main/main.component';
 import { RollComponent } from './feature/main/roll/roll.component';
+import { CollectionComponent } from './feature/main/collection/collection.component';
 
 export const routes: Routes = [
     {
@@ -26,8 +27,17 @@ export const routes: Routes = [
         component: MainComponent,
         children: [
             {
+                path: '',
+                redirectTo: 'collection',
+                pathMatch: 'full'
+            },
+            {
                 path: 'roll',
                 component: RollComponent
+            },
+            {
+                path: 'collection',
+                component: CollectionComponent
             }
         ]
     },

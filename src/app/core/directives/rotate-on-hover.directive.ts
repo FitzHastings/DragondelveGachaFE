@@ -1,11 +1,11 @@
-import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, numberAttribute, Renderer2 } from '@angular/core';
 
 @Directive({
     standalone: true,
     selector: '[appRotateOnHover]'
 })
 export class RotateOnHoverDirective {
-    @Input() public intensity: number = 5;
+    @Input({ transform: numberAttribute }) public intensity: number = 5;
 
     public constructor(private el: ElementRef, private renderer: Renderer2) {}
 
