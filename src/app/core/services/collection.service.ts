@@ -32,4 +32,8 @@ export class CollectionService {
     public fetchCollection(): Observable<Character[]> {
         return this.http.get<Character[]>(this.collectionUrl);
     }
+
+    public fetchCharacter(id: number): Observable<Character> {
+        return this.http.get<Character>(`${this.collectionUrl}/${id}`);
+    }
 }

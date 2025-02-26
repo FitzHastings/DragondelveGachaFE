@@ -1,22 +1,52 @@
+<!-- Copyright 2024 Prokhor Kalinin
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+
 <div class="scale roll-scale">
     <header class="scale-header">
         @if (character() && animationState() === 'idle') {
-            <h3 class="scale-title" >{{ character()?.template?.setting?.name }}</h3>
-            <h3 class="scale-title rarity-label" appRarityColor rarity="{{ character()?.template?.rarity?.name }}">{{ character()?.template?.rarity?.name }}</h3>
+            <h3 class="scale-title">{{ character()?.template?.setting?.name }}</h3>
+            <h3 appRarityColor class="scale-title rarity-label"
+                rarity="{{ character()?.template?.rarity?.name }}">{{ character()?.template?.rarity?.name }}</h3>
             <div class="title-controls">
-                <button class="action-button"
-                        (mouseenter)="onShowDescription()"
+                <button (mouseenter)="onShowDescription()"
                         (mouseleave)="onHideDescription()"
-                >?</button>
-                <a target="_blank" href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}">
-                  <button class="action-button">v</button>
+                        class="action-button"
+                >?
+                </button>
+                <a href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}" target="_blank">
+                    <button class="action-button">v</button>
                 </a>
             </div>
+
         } @else {
-            <div class="header-padding"></div>
+            <h3 class="scale-title">{{ character()?.template?.setting?.name }}</h3>
+            <h3 appRarityColor class="scale-title rarity-label"
+                rarity="{{ character()?.template?.rarity?.name }}">{{ character()?.template?.rarity?.name }}</h3>
+            <div class="title-controls">
+                <button (mouseenter)="onShowDescription()"
+                        (mouseleave)="onHideDescription()"
+                        class="action-button"
+                >?
+                </button>
+                <a href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}" target="_blank">
+                    <button class="action-button">v</button>
+                </a>
+            </div>
         }
     </header>
-    <div class="image-container" appRotateOnHover appShadowOnHover>
+    <main class="image-container" appRotateOnHover appShadowOnHover>
         <div
             class="gradient-overlay"
             [@rollAnimation]="animationState()"
@@ -30,7 +60,7 @@
         <div class="character-quote">"{{ character()?.template?.quote }}"</div>
 
         <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.path" alt="character"/>
-    </div>
+    </main>
     <div class="controls">
         <button (click)="onRoll()" class="action-button long">Roll 1⚡</button>
         <button (click)="onHarvest()" class="action-button long">Harvest 100✨</button>

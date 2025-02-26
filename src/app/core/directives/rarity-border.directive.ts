@@ -9,7 +9,6 @@ export class RarityBorderDirective {
         this.applyStyleBasedOnRarity(value);
     }
 
-
     public constructor(private el: ElementRef, private renderer: Renderer2) {
         this.applyStyleBasedOnRarity(this.rarity);
     }

@@ -20,6 +20,7 @@ import { SignupComponent } from './feature/auth/signup/signup.component';
 import { MainComponent } from './feature/main/main.component';
 import { RollComponent } from './feature/main/roll/roll.component';
 import { CollectionComponent } from './feature/main/collection/collection.component';
+import { CharacterViewComponent } from './feature/main/character-view/character-view.component';
 
 export const routes: Routes = [
     {
@@ -38,6 +39,10 @@ export const routes: Routes = [
             {
                 path: 'collection',
                 component: CollectionComponent
+            },
+            {
+                path: 'collection/:id',
+                component: CharacterViewComponent
             }
         ]
     },

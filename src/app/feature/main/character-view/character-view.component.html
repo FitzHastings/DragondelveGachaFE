@@ -1,0 +1,43 @@
+<!-- Copyright 2024 Prokhor Kalinin
+
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
+<div class="character-card-container">
+    <div class="scale character-scale">
+        @if (character()) {
+            <header class="scale-header">
+                <h3 class="scale-title">{{ character()?.template?.setting?.name }}</h3>
+                <h3 appRarityColor class="scale-title rarity-label"
+                    rarity="{{ character()?.template?.rarity?.name }}">{{ character()?.template?.rarity?.name }}</h3>
+                <div class="title-controls">
+                    <button (mouseenter)="onShowDescription()"
+                            (mouseleave)="onHideDescription()"
+                            class="action-button"
+                    >?
+                    </button>
+                    <a href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}" target="_blank">
+                        <button class="action-button">v</button>
+                    </a>
+                </div>
+            </header>
+            <main class="image-container" appRotateOnHover appShadowOnHover>
+                <span class="character-name">{{ character()?.name }}</span>
+                @if (showDescription()) {
+                    <div class="character-description">{{ character()?.template?.description }}</div>
+                }
+
+                <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.path" alt="character"/>
+            </main>
+        }
+    </div>
+</div>

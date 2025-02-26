@@ -78,15 +78,15 @@ export class RollScaleComponent implements OnInit {
         });
     }
 
+    protected onHarvest(): void {
+        console.log('harvest');
+    }
+
     protected onShowDescription(): void {
         this.showDescription.set(true);
     }
 
     protected onHideDescription(): void {
         this.showDescription.set(false);
-    }
-
-    protected onHarvest(): void {
-        console.log('harvest');
     }
 }

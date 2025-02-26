@@ -14,13 +14,13 @@
  */
 
 import { Component, OnInit, signal, WritableSignal } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { CollectionService } from '../../../core/services/collection.service';
 import { Character } from '../../../core/interfaces/character';
 import { RotateOnHoverDirective } from '../../../core/directives/rotate-on-hover.directive';
 
 import { CharacterCardComponent } from './character-card/character-card.component';
-
 
 @Component({
     selector: 'app-collection',
@@ -36,8 +36,13 @@ export class CollectionComponent implements OnInit {
     protected collection: WritableSignal<Character[] | null> = signal<Character[] | null>(null);
 
     public constructor(
-        private readonly collectionService: CollectionService
+        private readonly collectionService: CollectionService,
+        private readonly router: Router
     ) {
+    }
+
+    public onCharacterClick(characterId: number): void {
+        this.router.navigate(['/collection/', characterId]);
     }
 
     public ngOnInit(): void {

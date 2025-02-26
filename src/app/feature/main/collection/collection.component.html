@@ -16,7 +16,11 @@
 <div class="collection-container">
     <div class="collection-screen">
         @for ( character of collection() ; track character.id) {
-            <app-character-card appRotateOnHover intensity="25" [character]="character"></app-character-card>
+            <app-character-card
+                appRotateOnHover intensity="25"
+                [character]="character"
+                (click)="onCharacterClick(character.id!)"
+            />
         }
     </div>
 </div>
