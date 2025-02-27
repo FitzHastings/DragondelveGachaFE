@@ -1,4 +1,4 @@
-/* Copyright 2024 Prokhor Kalinin
+/* Copyright 2024-2025 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
    limitations under the License.
  */
 
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, Signal, signal, WritableSignal } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../../../core/services/auth.service';
@@ -28,8 +28,12 @@ import { User } from '../../../core/interfaces/user';
 })
 export class UserInfoComponent {
     public user: WritableSignal<User | null> = signal<User | null>(null);
+    public energy: Signal<number>;
+    public dust: Signal<number>;
 
     public constructor(private readonly router: Router, private readonly authService: AuthService) {
+        this.dust = this.authService.dust$;
+        this.energy = this.authService.energy$;
     }
 
     public ngOnInit(): void {
@@ -37,6 +41,8 @@ export class UserInfoComponent {
             if (!user)
                 this.router.navigate(['/login']);
             this.user.set(user);
+            this.authService.dust$.set(user?.dust || 0);
+            this.authService.energy$.set(user?.energy || 0);
         });
     }
 

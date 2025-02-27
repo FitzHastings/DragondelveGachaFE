@@ -1,4 +1,4 @@
-/* Copyright 2024 Prokhor Kalinin
+/* Copyright 2024-2025 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -13,7 +13,7 @@
    limitations under the License.
  */
 
-import { Injectable } from '@angular/core';
+import { Injectable, signal, WritableSignal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 
@@ -31,6 +31,8 @@ export class AuthService {
     private readonly loginUrl = `${apiUrl}/auth/login`;
     private readonly verifyTokenUrl = `${apiUrl}/auth`;
     private readonly tokenKey = 'authToken';
+    private readonly energy: WritableSignal<number> = signal<number>(0);
+    private readonly dust: WritableSignal<number> = signal<number>(0);
 
     public constructor(private http: HttpClient) {
     }
@@ -46,6 +48,14 @@ export class AuthService {
         return this.http.post<{ access_token: string }>(this.loginUrl, { username, password }).pipe(
             tap((response) => this.setToken(response.access_token))
         );
+    }
+
+    public get energy$(): WritableSignal<number> {
+        return this.energy;
+    }
+
+    public get dust$(): WritableSignal<number> {
+        return this.dust;
     }
 
     /**

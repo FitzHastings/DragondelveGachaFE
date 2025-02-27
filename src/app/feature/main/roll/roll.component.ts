@@ -13,7 +13,9 @@
    limitations under the License.
  */
 
-import { Component, signal, WritableSignal } from '@angular/core';
+import { Component, Signal, signal, WritableSignal } from '@angular/core';
+
+import { AuthService } from '../../../core/services/auth.service';
 
 import { RollScaleComponent } from './roll-scale/roll-scale.component';
 
@@ -28,6 +30,13 @@ import { RollScaleComponent } from './roll-scale/roll-scale.component';
 })
 export class RollComponent {
     protected readonly hasRolled: WritableSignal<boolean> = signal<boolean>(false);
+    protected readonly energy: Signal<number>;
+
+    public constructor(
+        private readonly authService: AuthService
+    ) {
+        this.energy = authService.energy$;
+    }
 
     protected onRoll(): void {
         this.hasRolled.set(true);

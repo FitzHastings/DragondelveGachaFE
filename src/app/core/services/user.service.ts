@@ -1,4 +1,4 @@
-/* Copyright 2024 Prokhor Kalinin
+/* Copyright 2024-2025 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -18,7 +18,6 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { apiUrl } from '../utils/api-url';
-
 
 /**
  * A service responsible for user-related operations such as registering new users.

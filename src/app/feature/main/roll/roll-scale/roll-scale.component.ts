@@ -22,6 +22,7 @@ import { RollService } from '../../../../core/services/roll.service';
 import { Character } from '../../../../core/interfaces/character';
 import { apiUrl } from '../../../../core/utils/api-url';
 import { RarityColorDirective } from '../../../../core/directives/rarity-color.directive';
+import { AuthService } from '../../../../core/services/auth.service';
 
 @Component({
     selector: 'app-roll-scale',
@@ -58,7 +59,8 @@ export class RollScaleComponent implements OnInit {
     protected readonly apiUrl = apiUrl;
 
     public constructor(
-        private readonly rollService: RollService
+        private readonly rollService: RollService,
+        private readonly authService: AuthService
     ) {
     }
 
@@ -71,6 +73,7 @@ export class RollScaleComponent implements OnInit {
     }
 
     protected onRoll(): void {
+        this.authService.energy$.set(this.authService.energy$() - 1);
         const sub = this.rollService.roll();
         sub.subscribe((character) => {
             this.animationState.set('rolling');

@@ -1,4 +1,4 @@
-<!-- Copyright 2024 Prokhor Kalinin
+<!-- Copyright 2024-2025 Prokhor Kalinin
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.
@@ -23,27 +23,13 @@
                 <button (mouseenter)="onShowDescription()"
                         (mouseleave)="onHideDescription()"
                         class="action-button"
-                >?
-                </button>
+                >?</button>
                 <a href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}" target="_blank">
                     <button class="action-button">v</button>
                 </a>
             </div>
-
         } @else {
-            <h3 class="scale-title">{{ character()?.template?.setting?.name }}</h3>
-            <h3 appRarityColor class="scale-title rarity-label"
-                rarity="{{ character()?.template?.rarity?.name }}">{{ character()?.template?.rarity?.name }}</h3>
-            <div class="title-controls">
-                <button (mouseenter)="onShowDescription()"
-                        (mouseleave)="onHideDescription()"
-                        class="action-button"
-                >?
-                </button>
-                <a href="{{ apiUrl + '/' + character()?.template?.fullImage?.path }}" target="_blank">
-                    <button class="action-button">v</button>
-                </a>
-            </div>
+            <div class="header-padding"></div>
         }
     </header>
     <main class="image-container" appRotateOnHover appShadowOnHover>
