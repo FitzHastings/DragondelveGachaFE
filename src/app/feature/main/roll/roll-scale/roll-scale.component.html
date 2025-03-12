@@ -45,7 +45,7 @@
         }
         <div class="character-quote">"{{ character()?.template?.quote }}"</div>
 
-        <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.path" alt="character"/>
+        <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.optimizedPath" alt="character"/>
     </main>
     <div class="controls">
         <button (click)="onRoll()" class="action-button long">Roll 1⚡</button>

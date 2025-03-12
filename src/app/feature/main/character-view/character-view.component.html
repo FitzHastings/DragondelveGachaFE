@@ -36,7 +36,7 @@
                     <div class="character-description">{{ character()?.template?.description }}</div>
                 }
 
-                <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.path" alt="character"/>
+                <img class="image" [src]="apiUrl + '/' + character()?.template?.fullImage?.optimizedPath" alt="character"/>
             </main>
         }
     </div>

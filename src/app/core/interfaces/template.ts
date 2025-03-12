@@ -26,6 +26,5 @@ export interface CharacterTemplate extends GeneralEntity {
     isRollable?: boolean;
     setting?: World
     rarity?: Rarity;
-    smallImage?: ExternalFile;
     fullImage?: ExternalFile;
 }

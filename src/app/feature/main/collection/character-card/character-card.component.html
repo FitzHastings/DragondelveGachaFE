@@ -14,6 +14,6 @@
 -->
 
 <div class="card" appRarityBorder [rarity]="character().template?.rarity?.name || 'common'">
-    <img class="image" src="{{ apiUrl + '/' + character().template?.smallImage?.path }}" alt="{{ character().name }}"/>
+    <img class="image" src="{{ apiUrl + '/' + character().template?.fullImage?.thumbnailPath }}" alt="{{ character().name }}"/>
     <div class="card-name">{{ character().name }} </div>
 </div>
