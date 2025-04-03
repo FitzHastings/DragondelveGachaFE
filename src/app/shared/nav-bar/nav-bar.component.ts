@@ -29,5 +29,9 @@ import { UserInfoComponent } from './user-info/user-info.component';
     styleUrl: './nav-bar.component.css'
 })
 export class NavBarComponent {
+    public isDropdownHidden: boolean = true; // Dropdown is initially hidden
 
+    protected toggleDropdown() {
+        this.isDropdownHidden = !this.isDropdownHidden; // Toggle visibility of the dropdown
+    }
 }

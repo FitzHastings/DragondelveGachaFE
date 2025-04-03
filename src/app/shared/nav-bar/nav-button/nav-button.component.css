@@ -34,3 +34,10 @@ button:hover {
     box-shadow: 0 0 4px var(--error-color);
     transition: 0.2s;
 }
+
+
+@media (max-width: 1200px) {
+    button {
+        width: 150px;
+    }
+}
